@@ -1,0 +1,2943 @@
+{
+ "model_tables": [
+  {
+   "name": "dim_date",
+   "schema": "gold",
+   "entity": "dim_date",
+   "description": "Calendar 2025-2027. Snapshot (today) is 6 Oct 2026; is_closed_ytd = Jan-Sep closed months.",
+   "columns": [
+    {
+     "name": "date",
+     "type": "dateTime",
+     "hidden": false,
+     "key": true,
+     "sort": null,
+     "category": null,
+     "format": "dd mmm yyyy"
+    },
+    {
+     "name": "year",
+     "type": "int64",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "quarter",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "month_num",
+     "type": "int64",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "month",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": "month_num",
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "year_month",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "month_start",
+     "type": "dateTime",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": "mmm yyyy"
+    },
+    {
+     "name": "week_start",
+     "type": "dateTime",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": "dd mmm yyyy"
+    },
+    {
+     "name": "weekday_num",
+     "type": "int64",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "weekday",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": "weekday_num",
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "season",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "is_actual",
+     "type": "boolean",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "is_closed_ytd",
+     "type": "boolean",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    }
+   ],
+   "measures": []
+  },
+  {
+   "name": "dim_hotel",
+   "schema": "gold",
+   "entity": "dim_hotel",
+   "description": "The 24 Kyanos hotels and resorts with destination, airport, concept and general manager.",
+   "columns": [
+    {
+     "name": "hotel_id",
+     "type": "int64",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "hotel_code",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "hotel_name",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "hotel_short_name",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "destination",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "region",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": "StateOrProvince",
+     "format": null
+    },
+    {
+     "name": "airport_code",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "stars",
+     "type": "int64",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "concept",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "rooms",
+     "type": "int64",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "latitude",
+     "type": "double",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": "Latitude",
+     "format": null
+    },
+    {
+     "name": "longitude",
+     "type": "double",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": "Longitude",
+     "format": null
+    },
+    {
+     "name": "operating_model",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "general_manager",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "gm_email",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    }
+   ],
+   "measures": []
+  },
+  {
+   "name": "dim_airport",
+   "schema": "gold",
+   "entity": "dim_airport",
+   "description": "Greek airports serving the hotels.",
+   "columns": [
+    {
+     "name": "airport_code",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "airport_name",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "airport_region",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    }
+   ],
+   "measures": []
+  },
+  {
+   "name": "dim_guest",
+   "schema": "gold",
+   "entity": "dim_guest",
+   "description": "Guest profile from the PMS enriched with Salesforce Privilege Club membership.",
+   "columns": [
+    {
+     "name": "guest_id",
+     "type": "int64",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "guest_name",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "email",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "country_code",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "country",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": "Country",
+     "format": null
+    },
+    {
+     "name": "language",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "member_id",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "is_member",
+     "type": "boolean",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "loyalty_tier",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "marketing_opt_in",
+     "type": "boolean",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "top_preference",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "lifetime_nights",
+     "type": "int64",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    }
+   ],
+   "measures": []
+  },
+  {
+   "name": "fact_hotel_day",
+   "schema": "gold",
+   "entity": "fact_hotel_day",
+   "description": "One row per hotel per day: rooms available vs sold and revenue. Future dates hold on-the-books business.",
+   "columns": [
+    {
+     "name": "hotel_id",
+     "type": "int64",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "date",
+     "type": "dateTime",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "rooms_available",
+     "type": "int64",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "rooms_sold",
+     "type": "int64",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "room_revenue",
+     "type": "double",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "extras_revenue",
+     "type": "double",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "arrivals",
+     "type": "int64",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "is_actual",
+     "type": "boolean",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "total_revenue",
+     "type": "double",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    }
+   ],
+   "measures": [
+    {
+     "name": "Rooms Available",
+     "dax": "SUM(fact_hotel_day[rooms_available])",
+     "format": "#,0",
+     "folder": "KPIs",
+     "description": "Saleable room nights (hotel open days x rooms)."
+    },
+    {
+     "name": "Rooms Sold",
+     "dax": "SUM(fact_hotel_day[rooms_sold])",
+     "format": "#,0",
+     "folder": "KPIs",
+     "description": "Occupied room nights (on-the-books for future dates)."
+    },
+    {
+     "name": "Occupancy %",
+     "dax": "DIVIDE([Rooms Sold], [Rooms Available])",
+     "format": "0.0%",
+     "folder": "KPIs",
+     "description": "Rooms sold / rooms available."
+    },
+    {
+     "name": "Room Revenue",
+     "dax": "SUM(fact_hotel_day[room_revenue])",
+     "format": "\\\u20ac#,0",
+     "folder": "KPIs",
+     "description": "Accommodation revenue in EUR."
+    },
+    {
+     "name": "F&B and Other Revenue",
+     "dax": "SUM(fact_hotel_day[extras_revenue])",
+     "format": "\\\u20ac#,0",
+     "folder": "KPIs",
+     "description": "Food & beverage, spa and other outlet revenue in EUR."
+    },
+    {
+     "name": "Total Revenue",
+     "dax": "SUM(fact_hotel_day[total_revenue])",
+     "format": "\\\u20ac#,0",
+     "folder": "KPIs",
+     "description": "Room + F&B and other revenue in EUR."
+    },
+    {
+     "name": "ADR",
+     "dax": "DIVIDE([Room Revenue], [Rooms Sold])",
+     "format": "\\\u20ac#,0.00",
+     "folder": "KPIs",
+     "description": "Average daily rate = room revenue / rooms sold."
+    },
+    {
+     "name": "RevPAR",
+     "dax": "DIVIDE([Room Revenue], [Rooms Available])",
+     "format": "\\\u20ac#,0.00",
+     "folder": "KPIs",
+     "description": "Revenue per available room = room revenue / rooms available."
+    },
+    {
+     "name": "TRevPAR",
+     "dax": "DIVIDE([Total Revenue], [Rooms Available])",
+     "format": "\\\u20ac#,0.00",
+     "folder": "KPIs",
+     "description": "Total revenue per available room."
+    },
+    {
+     "name": "Guest Arrivals",
+     "dax": "SUM(fact_hotel_day[arrivals])",
+     "format": "#,0",
+     "folder": "KPIs",
+     "description": "Number of arriving reservations."
+    },
+    {
+     "name": "Occupancy % LY",
+     "dax": "CALCULATE([Occupancy %], SAMEPERIODLASTYEAR(dim_date[date]))",
+     "format": "0.0%",
+     "folder": "Last Year",
+     "description": "Occupancy for the same period last year."
+    },
+    {
+     "name": "ADR LY",
+     "dax": "CALCULATE([ADR], SAMEPERIODLASTYEAR(dim_date[date]))",
+     "format": "\\\u20ac#,0.00",
+     "folder": "Last Year",
+     "description": "ADR for the same period last year."
+    },
+    {
+     "name": "RevPAR LY",
+     "dax": "CALCULATE([RevPAR], SAMEPERIODLASTYEAR(dim_date[date]))",
+     "format": "\\\u20ac#,0.00",
+     "folder": "Last Year",
+     "description": "RevPAR for the same period last year."
+    },
+    {
+     "name": "Room Revenue LY",
+     "dax": "CALCULATE([Room Revenue], SAMEPERIODLASTYEAR(dim_date[date]))",
+     "format": "\\\u20ac#,0",
+     "folder": "Last Year",
+     "description": "Room revenue same period last year."
+    },
+    {
+     "name": "Total Revenue LY",
+     "dax": "CALCULATE([Total Revenue], SAMEPERIODLASTYEAR(dim_date[date]))",
+     "format": "\\\u20ac#,0",
+     "folder": "Last Year",
+     "description": "Total revenue same period last year."
+    },
+    {
+     "name": "Occupancy vs LY (pts)",
+     "dax": "IF(NOT ISBLANK([Occupancy % LY]), [Occupancy %] - [Occupancy % LY])",
+     "format": "+0.0%;-0.0%;0.0%",
+     "folder": "Last Year",
+     "description": "Change in occupancy vs last year, in percentage points."
+    },
+    {
+     "name": "ADR vs LY %",
+     "dax": "DIVIDE([ADR] - [ADR LY], [ADR LY])",
+     "format": "+0.0%;-0.0%;0.0%",
+     "folder": "Last Year",
+     "description": "ADR growth vs last year."
+    },
+    {
+     "name": "RevPAR vs LY %",
+     "dax": "DIVIDE([RevPAR] - [RevPAR LY], [RevPAR LY])",
+     "format": "+0.0%;-0.0%;0.0%",
+     "folder": "Last Year",
+     "description": "RevPAR growth vs last year."
+    },
+    {
+     "name": "Total Revenue vs LY %",
+     "dax": "DIVIDE([Total Revenue] - [Total Revenue LY], [Total Revenue LY])",
+     "format": "+0.0%;-0.0%;0.0%",
+     "folder": "Last Year",
+     "description": "Total revenue growth vs last year."
+    }
+   ]
+  },
+  {
+   "name": "fact_hotel_cost",
+   "schema": "gold",
+   "entity": "fact_hotel_cost",
+   "description": "Monthly operating costs per hotel from SAP (payroll, F&B cost of sales, energy, commissions, maintenance, marketing).",
+   "columns": [
+    {
+     "name": "hotel_id",
+     "type": "int64",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "month_start",
+     "type": "dateTime",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "cost_category",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "gl_account",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "amount_eur",
+     "type": "double",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    }
+   ],
+   "measures": [
+    {
+     "name": "Operating Costs",
+     "dax": "SUM(fact_hotel_cost[amount_eur])",
+     "format": "\\\u20ac#,0",
+     "folder": "P&L",
+     "description": "Operating costs from SAP in EUR."
+    },
+    {
+     "name": "GOP",
+     "dax": "[Total Revenue] - [Operating Costs]",
+     "format": "\\\u20ac#,0",
+     "folder": "P&L",
+     "description": "Gross operating profit = total revenue - operating costs."
+    },
+    {
+     "name": "GOP Margin %",
+     "dax": "DIVIDE([GOP], [Total Revenue])",
+     "format": "0.0%",
+     "folder": "P&L",
+     "description": "GOP as a share of total revenue."
+    },
+    {
+     "name": "GOPPAR",
+     "dax": "DIVIDE([GOP], [Rooms Available])",
+     "format": "\\\u20ac#,0.00",
+     "folder": "P&L",
+     "description": "Gross operating profit per available room."
+    },
+    {
+     "name": "GOP Margin % LY",
+     "dax": "CALCULATE([GOP Margin %], SAMEPERIODLASTYEAR(dim_date[date]))",
+     "format": "0.0%",
+     "folder": "P&L",
+     "description": "GOP margin same period last year."
+    }
+   ]
+  },
+  {
+   "name": "fact_reservation",
+   "schema": "gold",
+   "entity": "fact_reservation",
+   "description": "Every PMS reservation (incl. cancellations) with channel, segment, board, lead time and revenue.",
+   "columns": [
+    {
+     "name": "reservation_id",
+     "type": "int64",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "confirmation_no",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "hotel_id",
+     "type": "int64",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "guest_id",
+     "type": "int64",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "room_type",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "booking_date",
+     "type": "dateTime",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": "dd mmm yyyy"
+    },
+    {
+     "name": "arrival_date",
+     "type": "dateTime",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": "dd mmm yyyy"
+    },
+    {
+     "name": "departure_date",
+     "type": "dateTime",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": "dd mmm yyyy"
+    },
+    {
+     "name": "nights",
+     "type": "int64",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "lead_time_days",
+     "type": "int64",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "channel",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "channel_group",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "market_segment",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "tour_operator",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "board_type",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "adults",
+     "type": "int64",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "children",
+     "type": "int64",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "status",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "is_cancelled",
+     "type": "boolean",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "is_active",
+     "type": "boolean",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "rate_amount",
+     "type": "double",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "room_revenue",
+     "type": "double",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "extras_revenue",
+     "type": "double",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "cancel_date",
+     "type": "dateTime",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": "dd mmm yyyy"
+    },
+    {
+     "name": "created_at",
+     "type": "dateTime",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    }
+   ],
+   "measures": [
+    {
+     "name": "Bookings",
+     "dax": "CALCULATE(COUNTROWS(fact_reservation), fact_reservation[is_active])",
+     "format": "#,0",
+     "folder": "Bookings",
+     "description": "Active reservations (not cancelled / no-show), by arrival date."
+    },
+    {
+     "name": "Cancellations",
+     "dax": "CALCULATE(COUNTROWS(fact_reservation), fact_reservation[is_cancelled])",
+     "format": "#,0",
+     "folder": "Bookings",
+     "description": "Cancelled reservations."
+    },
+    {
+     "name": "Cancellation Rate %",
+     "dax": "DIVIDE([Cancellations], [Cancellations] + [Bookings])",
+     "format": "0.0%",
+     "folder": "Bookings",
+     "description": "Cancelled / all reservations."
+    },
+    {
+     "name": "Avg Lead Time (days)",
+     "dax": "CALCULATE(AVERAGE(fact_reservation[lead_time_days]), fact_reservation[is_active])",
+     "format": "0",
+     "folder": "Bookings",
+     "description": "Average days between booking and arrival."
+    },
+    {
+     "name": "Avg Length of Stay",
+     "dax": "CALCULATE(AVERAGE(fact_reservation[nights]), fact_reservation[is_active])",
+     "format": "0.0",
+     "folder": "Bookings",
+     "description": "Average nights per stay."
+    },
+    {
+     "name": "Booked Room Revenue",
+     "dax": "CALCULATE(SUM(fact_reservation[room_revenue]), fact_reservation[is_active])",
+     "format": "\\\u20ac#,0",
+     "folder": "Bookings",
+     "description": "Room revenue of active reservations."
+    },
+    {
+     "name": "Direct Share %",
+     "dax": "DIVIDE(CALCULATE([Booked Room Revenue], fact_reservation[channel_group] = \"Direct\"), [Booked Room Revenue])",
+     "format": "0.0%",
+     "folder": "Bookings",
+     "description": "Share of room revenue booked direct (web + call centre)."
+    },
+    {
+     "name": "Direct Share % LY",
+     "dax": "CALCULATE([Direct Share %], SAMEPERIODLASTYEAR(dim_date[date]))",
+     "format": "0.0%",
+     "folder": "Bookings",
+     "description": "Direct share same period last year."
+    },
+    {
+     "name": "Privilege Club Share %",
+     "dax": "DIVIDE(CALCULATE([Bookings], dim_guest[is_member] = TRUE()), [Bookings])",
+     "format": "0.0%",
+     "folder": "Guests",
+     "description": "Share of stays by Privilege Club members."
+    }
+   ]
+  },
+  {
+   "name": "fact_guest_case",
+   "schema": "gold",
+   "entity": "fact_guest_case",
+   "description": "Salesforce Service Cloud guest cases (complaints, requests, compliments) with CSAT.",
+   "columns": [
+    {
+     "name": "case_id",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "confirmation_no",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "hotel_id",
+     "type": "int64",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "created_date",
+     "type": "dateTime",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": "dd mmm yyyy"
+    },
+    {
+     "name": "category",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "sub_category",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "origin",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "status",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "csat_score",
+     "type": "int64",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    }
+   ],
+   "measures": [
+    {
+     "name": "Guest Cases",
+     "dax": "COUNTROWS(fact_guest_case)",
+     "format": "#,0",
+     "folder": "Guests",
+     "description": "Number of Salesforce guest cases."
+    },
+    {
+     "name": "Complaints",
+     "dax": "CALCULATE([Guest Cases], fact_guest_case[category] = \"Complaint\")",
+     "format": "#,0",
+     "folder": "Guests",
+     "description": "Guest complaints."
+    },
+    {
+     "name": "Avg Case CSAT",
+     "dax": "AVERAGE(fact_guest_case[csat_score])",
+     "format": "0.00",
+     "folder": "Guests",
+     "description": "Average case satisfaction score (1-5)."
+    },
+    {
+     "name": "Complaints per 1,000 Room Nights",
+     "dax": "DIVIDE([Complaints], [Rooms Sold]) * 1000",
+     "format": "0.00",
+     "folder": "Guests",
+     "description": "Complaints normalised by occupied room nights."
+    }
+   ]
+  },
+  {
+   "name": "fact_airport_seats",
+   "schema": "gold",
+   "entity": "fact_airport_seats",
+   "description": "Weekly scheduled arriving airline seats per airport (2027 = published schedules).",
+   "columns": [
+    {
+     "name": "airport_code",
+     "type": "string",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "week_start",
+     "type": "dateTime",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "arriving_seats",
+     "type": "int64",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "flights",
+     "type": "int64",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "season_year",
+     "type": "int64",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "data_status",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    }
+   ],
+   "measures": [
+    {
+     "name": "Airline Seats",
+     "dax": "CALCULATE(SUM(fact_airport_seats[arriving_seats]), TREATAS(VALUES(dim_hotel[airport_code]), dim_airport[airport_code]))",
+     "format": "#,0",
+     "folder": "Market",
+     "description": "Scheduled arriving airline seats."
+    },
+    {
+     "name": "Airline Seats LY",
+     "dax": "CALCULATE([Airline Seats], SAMEPERIODLASTYEAR(dim_date[date]))",
+     "format": "#,0",
+     "folder": "Market",
+     "description": "Arriving seats same period last year."
+    },
+    {
+     "name": "Airline Seat Growth %",
+     "dax": "DIVIDE([Airline Seats] - [Airline Seats LY], [Airline Seats LY])",
+     "format": "+0.0%;-0.0%;0.0%",
+     "folder": "Market",
+     "description": "Change in scheduled arriving seats vs last year."
+    }
+   ]
+  },
+  {
+   "name": "fact_occupancy_forecast",
+   "schema": "gold",
+   "entity": "fact_occupancy_forecast",
+   "description": "AI occupancy forecast per hotel-day for Jan-Sep 2027 (booking pace + airline seats model, MLflow).",
+   "columns": [
+    {
+     "name": "hotel_id",
+     "type": "int64",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "date",
+     "type": "dateTime",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "rooms_available",
+     "type": "double",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "otb_rooms",
+     "type": "double",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "ly_otb_rooms",
+     "type": "double",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "forecast_rooms_sold",
+     "type": "double",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "forecast_room_revenue",
+     "type": "double",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "ly_rooms_sold",
+     "type": "double",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "ly_room_revenue",
+     "type": "double",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "seat_growth",
+     "type": "double",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "pace_vs_ly",
+     "type": "double",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "otb_occ",
+     "type": "double",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "forecast_occ",
+     "type": "double",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "ly_occ",
+     "type": "double",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "model_run_id",
+     "type": "string",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "snapshot_date",
+     "type": "dateTime",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    }
+   ],
+   "measures": [
+    {
+     "name": "Forecast Occupancy %",
+     "dax": "DIVIDE(SUM(fact_occupancy_forecast[forecast_rooms_sold]), SUM(fact_occupancy_forecast[rooms_available]))",
+     "format": "0.0%",
+     "folder": "Forecast 2027",
+     "description": "AI forecast occupancy for 2027."
+    },
+    {
+     "name": "Last Year Occupancy %",
+     "dax": "DIVIDE(SUM(fact_occupancy_forecast[ly_rooms_sold]), SUM(fact_occupancy_forecast[rooms_available]))",
+     "format": "0.0%",
+     "folder": "Forecast 2027",
+     "description": "Actual occupancy of the same weekdays in 2026."
+    },
+    {
+     "name": "On-the-Books %",
+     "dax": "DIVIDE(SUM(fact_occupancy_forecast[otb_rooms]), SUM(fact_occupancy_forecast[rooms_available]))",
+     "format": "0.0%",
+     "folder": "Forecast 2027",
+     "description": "Occupancy already booked for 2027 as of 6 Oct 2026."
+    },
+    {
+     "name": "On-the-Books LY %",
+     "dax": "DIVIDE(SUM(fact_occupancy_forecast[ly_otb_rooms]), SUM(fact_occupancy_forecast[rooms_available]))",
+     "format": "0.0%",
+     "folder": "Forecast 2027",
+     "description": "Occupancy that was booked for 2026 at the same point last year."
+    },
+    {
+     "name": "Forecast vs LY (pts)",
+     "dax": "[Forecast Occupancy %] - [Last Year Occupancy %]",
+     "format": "+0.0%;-0.0%;0.0%",
+     "folder": "Forecast 2027",
+     "description": "Forecast occupancy change vs 2026, in points."
+    },
+    {
+     "name": "Booking Pace vs LY (pts)",
+     "dax": "[On-the-Books %] - [On-the-Books LY %]",
+     "format": "+0.0%;-0.0%;0.0%",
+     "folder": "Forecast 2027",
+     "description": "On-the-books ahead (+) or behind (-) last year's pace."
+    },
+    {
+     "name": "Forecast Room Revenue",
+     "dax": "SUM(fact_occupancy_forecast[forecast_room_revenue])",
+     "format": "\\\u20ac#,0",
+     "folder": "Forecast 2027",
+     "description": "Forecast 2027 room revenue (LY ADR +4%)."
+    },
+    {
+     "name": "Forecast Room Revenue vs LY %",
+     "dax": "DIVIDE([Forecast Room Revenue] - SUM(fact_occupancy_forecast[ly_room_revenue]), SUM(fact_occupancy_forecast[ly_room_revenue]))",
+     "format": "+0.0%;-0.0%;0.0%",
+     "folder": "Forecast 2027",
+     "description": "Forecast room revenue growth vs 2026."
+    },
+    {
+     "name": "Seat Growth at Airport %",
+     "dax": "DIVIDE(SUMX(fact_occupancy_forecast, fact_occupancy_forecast[seat_growth] * fact_occupancy_forecast[rooms_available]), SUM(fact_occupancy_forecast[rooms_available]))",
+     "format": "+0.0%;-0.0%;0.0%",
+     "folder": "Forecast 2027",
+     "description": "Airline seat capacity change at the hotel's airport, Summer 2027 vs 2026."
+    }
+   ]
+  },
+  {
+   "name": "live_pms_reservation",
+   "schema": "pms",
+   "entity": "Reservation",
+   "description": "LIVE: the PMS reservation table mirrored from SQL in near real time (no ETL).",
+   "columns": [
+    {
+     "name": "ReservationId",
+     "type": "int64",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "ConfirmationNo",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "HotelId",
+     "type": "int64",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "GuestId",
+     "type": "int64",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "BookingDate",
+     "type": "dateTime",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": "dd mmm yyyy"
+    },
+    {
+     "name": "ArrivalDate",
+     "type": "dateTime",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": "dd mmm yyyy"
+    },
+    {
+     "name": "Nights",
+     "type": "int64",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "Channel",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "MarketSegment",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "BoardType",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "RoomRevenue",
+     "type": "decimal",
+     "hidden": true,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "Status",
+     "type": "string",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": null
+    },
+    {
+     "name": "CreatedAt",
+     "type": "dateTime",
+     "hidden": false,
+     "key": false,
+     "sort": null,
+     "category": null,
+     "format": "dd mmm yyyy hh:nn:ss"
+    }
+   ],
+   "measures": [
+    {
+     "name": "PMS Reservations (live)",
+     "dax": "COUNTROWS(live_pms_reservation)",
+     "format": "#,0",
+     "folder": "Live PMS",
+     "description": "All reservations currently in the PMS."
+    },
+    {
+     "name": "Bookings Last 24h (live)",
+     "dax": "VAR cutoff = NOW() - 1 RETURN COALESCE(CALCULATE(COUNTROWS(live_pms_reservation), live_pms_reservation[CreatedAt] >= cutoff), 0)",
+     "format": "#,0",
+     "folder": "Live PMS",
+     "description": "Reservations saved in the PMS in the last 24 hours (rolling)."
+    },
+    {
+     "name": "Booked Revenue Last 24h (live)",
+     "dax": "VAR cutoff = NOW() - 1 RETURN COALESCE(CALCULATE(SUM(live_pms_reservation[RoomRevenue]), live_pms_reservation[CreatedAt] >= cutoff), 0)",
+     "format": "\\\u20ac#,0",
+     "folder": "Live PMS",
+     "description": "Room revenue of reservations saved in the last 24 hours (rolling)."
+    },
+    {
+     "name": "Last PMS Booking",
+     "dax": "FORMAT(MAX(live_pms_reservation[CreatedAt]), \"dd mmm yyyy hh:nn:ss\")",
+     "format": null,
+     "folder": "Live PMS",
+     "description": "Timestamp of the latest reservation in the PMS."
+    }
+   ]
+  }
+ ],
+ "relationships": [
+  {
+   "from_table": "fact_hotel_day",
+   "from_col": "hotel_id",
+   "to_table": "dim_hotel",
+   "to_col": "hotel_id"
+  },
+  {
+   "from_table": "fact_hotel_day",
+   "from_col": "date",
+   "to_table": "dim_date",
+   "to_col": "date"
+  },
+  {
+   "from_table": "fact_reservation",
+   "from_col": "hotel_id",
+   "to_table": "dim_hotel",
+   "to_col": "hotel_id"
+  },
+  {
+   "from_table": "fact_reservation",
+   "from_col": "arrival_date",
+   "to_table": "dim_date",
+   "to_col": "date"
+  },
+  {
+   "from_table": "fact_reservation",
+   "from_col": "guest_id",
+   "to_table": "dim_guest",
+   "to_col": "guest_id"
+  },
+  {
+   "from_table": "fact_hotel_cost",
+   "from_col": "hotel_id",
+   "to_table": "dim_hotel",
+   "to_col": "hotel_id"
+  },
+  {
+   "from_table": "fact_hotel_cost",
+   "from_col": "month_start",
+   "to_table": "dim_date",
+   "to_col": "date"
+  },
+  {
+   "from_table": "fact_guest_case",
+   "from_col": "hotel_id",
+   "to_table": "dim_hotel",
+   "to_col": "hotel_id"
+  },
+  {
+   "from_table": "fact_guest_case",
+   "from_col": "created_date",
+   "to_table": "dim_date",
+   "to_col": "date"
+  },
+  {
+   "from_table": "fact_airport_seats",
+   "from_col": "airport_code",
+   "to_table": "dim_airport",
+   "to_col": "airport_code"
+  },
+  {
+   "from_table": "fact_airport_seats",
+   "from_col": "week_start",
+   "to_table": "dim_date",
+   "to_col": "date"
+  },
+  {
+   "from_table": "fact_occupancy_forecast",
+   "from_col": "hotel_id",
+   "to_table": "dim_hotel",
+   "to_col": "hotel_id"
+  },
+  {
+   "from_table": "fact_occupancy_forecast",
+   "from_col": "date",
+   "to_table": "dim_date",
+   "to_col": "date"
+  },
+  {
+   "from_table": "dim_hotel",
+   "from_col": "airport_code",
+   "to_table": "dim_airport",
+   "to_col": "airport_code"
+  },
+  {
+   "from_table": "live_pms_reservation",
+   "from_col": "HotelId",
+   "to_table": "dim_hotel",
+   "to_col": "hotel_id"
+  }
+ ],
+ "roles": [
+  {
+   "name": "Crete Region Manager",
+   "table": "dim_hotel",
+   "filter": "[region] = \"Crete\""
+  },
+  {
+   "name": "Hotel General Manager",
+   "table": "dim_hotel",
+   "filter": "[gm_email] = USERPRINCIPALNAME()"
+  }
+ ],
+ "report_pages": [
+  {
+   "id": "p1",
+   "name": "Executive Overview",
+   "filters": [
+    "dim_date[year] = 2026L",
+    "dim_date[is_closed_ytd] = true"
+   ],
+   "visuals": [
+    {
+     "type": "card",
+     "title": null,
+     "fields": [
+      "Total revenue"
+     ]
+    },
+    {
+     "type": "card",
+     "title": null,
+     "fields": [
+      "vs last year"
+     ]
+    },
+    {
+     "type": "card",
+     "title": null,
+     "fields": [
+      "Occupancy"
+     ]
+    },
+    {
+     "type": "card",
+     "title": null,
+     "fields": [
+      "pts vs last year"
+     ]
+    },
+    {
+     "type": "card",
+     "title": null,
+     "fields": [
+      "ADR"
+     ]
+    },
+    {
+     "type": "card",
+     "title": null,
+     "fields": [
+      "vs last year"
+     ]
+    },
+    {
+     "type": "card",
+     "title": null,
+     "fields": [
+      "RevPAR"
+     ]
+    },
+    {
+     "type": "card",
+     "title": null,
+     "fields": [
+      "vs last year"
+     ]
+    },
+    {
+     "type": "card",
+     "title": null,
+     "fields": [
+      "GOP margin"
+     ]
+    },
+    {
+     "type": "card",
+     "title": null,
+     "fields": [
+      "last year"
+     ]
+    },
+    {
+     "type": "card",
+     "title": null,
+     "fields": [
+      "Direct booking share"
+     ]
+    },
+    {
+     "type": "card",
+     "title": null,
+     "fields": [
+      "last year"
+     ]
+    },
+    {
+     "type": "lineChart",
+     "title": "Total revenue by month \u2014 2026 vs 2025",
+     "fields": [
+      "month",
+      "2026",
+      "2025"
+     ]
+    },
+    {
+     "type": "treemap",
+     "title": "Revenue mix by destination",
+     "fields": [
+      "Destination",
+      "Total Revenue"
+     ]
+    },
+    {
+     "type": "clusteredColumnChart",
+     "title": "GOP margin by hotel concept (SAP)",
+     "fields": [
+      "concept",
+      "GOP Margin %",
+      "GOP Margin % LY"
+     ]
+    },
+    {
+     "type": "barChart",
+     "title": "RevPAR growth vs last year, by hotel",
+     "fields": [
+      "Hotel",
+      "RevPAR vs LY"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p2",
+   "name": "Hotel Scorecard",
+   "filters": [
+    "dim_date[year] = 2026L",
+    "dim_date[is_closed_ytd] = true"
+   ],
+   "visuals": [
+    {
+     "type": "tableEx",
+     "title": "Hotel KPIs vs last year",
+     "fields": [
+      "Hotel",
+      "Region",
+      "Concept",
+      "Occupancy",
+      "Occ vs LY",
+      "ADR",
+      "ADR vs LY",
+      "RevPAR",
+      "RevPAR vs LY",
+      "GOP %",
+      "GOPPAR",
+      "Case CSAT",
+      "Complaints /1k RN"
+     ]
+    },
+    {
+     "type": "scatterChart",
+     "title": "Rate vs volume \u2014 ADR by occupancy (bubble = revenue)",
+     "fields": [
+      "Hotel",
+      "Occupancy %",
+      "ADR",
+      "Total Revenue",
+      "concept"
+     ]
+    },
+    {
+     "type": "barChart",
+     "title": "Salesforce guest cases by type",
+     "fields": [
+      "Case type",
+      "Guest Cases",
+      "category"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p3",
+   "name": "Channels & Guests",
+   "filters": [
+    "dim_date[year] = 2026L",
+    "dim_date[is_closed_ytd] = true"
+   ],
+   "visuals": [
+    {
+     "type": "card",
+     "title": null,
+     "fields": [
+      "Direct booking share"
+     ]
+    },
+    {
+     "type": "card",
+     "title": null,
+     "fields": [
+      "last year"
+     ]
+    },
+    {
+     "type": "card",
+     "title": null,
+     "fields": [
+      "Privilege Club stays"
+     ]
+    },
+    {
+     "type": "card",
+     "title": null,
+     "fields": [
+      "Avg lead time (days)"
+     ]
+    },
+    {
+     "type": "card",
+     "title": null,
+     "fields": [
+      "Avg length of stay"
+     ]
+    },
+    {
+     "type": "card",
+     "title": null,
+     "fields": [
+      "Cancellation rate"
+     ]
+    },
+    {
+     "type": "card",
+     "title": null,
+     "fields": [
+      "Stays"
+     ]
+    },
+    {
+     "type": "lineChart",
+     "title": "Direct booking share by month \u2014 the direct strategy is working",
+     "fields": [
+      "month",
+      "2026",
+      "2025"
+     ]
+    },
+    {
+     "type": "barChart",
+     "title": "Room revenue by booking channel",
+     "fields": [
+      "Channel",
+      "Room revenue"
+     ]
+    },
+    {
+     "type": "donutChart",
+     "title": "Stays by Privilege Club tier (Salesforce)",
+     "fields": [
+      "Tier",
+      "Stays"
+     ]
+    },
+    {
+     "type": "clusteredColumnChart",
+     "title": "Average booking lead time (days)",
+     "fields": [
+      "Channel group",
+      "Lead time"
+     ]
+    },
+    {
+     "type": "barChart",
+     "title": "Source markets",
+     "fields": [
+      "Country",
+      "Stays"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p4",
+   "name": "2027 Demand Outlook (AI)",
+   "filters": [
+    "dim_date[year] = 2027L",
+    "dim_date[is_closed_ytd] = true"
+   ],
+   "visuals": [
+    {
+     "type": "card",
+     "title": null,
+     "fields": [
+      "Forecast occupancy 2027"
+     ]
+    },
+    {
+     "type": "card",
+     "title": null,
+     "fields": [
+      "pts vs 2026"
+     ]
+    },
+    {
+     "type": "card",
+     "title": null,
+     "fields": [
+      "2026 actual occupancy"
+     ]
+    },
+    {
+     "type": "card",
+     "title": null,
+     "fields": [
+      "Already on the books"
+     ]
+    },
+    {
+     "type": "card",
+     "title": null,
+     "fields": [
+      "pace vs LY (pts)"
+     ]
+    },
+    {
+     "type": "card",
+     "title": null,
+     "fields": [
+      "Forecast room revenue"
+     ]
+    },
+    {
+     "type": "card",
+     "title": null,
+     "fields": [
+      "vs 2026"
+     ]
+    },
+    {
+     "type": "card",
+     "title": null,
+     "fields": [
+      "Airline seats vs 2026"
+     ]
+    },
+    {
+     "type": "lineChart",
+     "title": "Occupancy by month \u2014 forecast vs 2026 actual vs booked so far",
+     "fields": [
+      "month",
+      "Forecast 2027",
+      "Actual 2026",
+      "On the books today"
+     ]
+    },
+    {
+     "type": "clusteredColumnChart",
+     "title": "Published airline seat capacity, Summer 2027 vs 2026",
+     "fields": [
+      "Airport",
+      "Seat growth"
+     ]
+    },
+    {
+     "type": "barChart",
+     "title": "Forecast occupancy change vs 2026, by hotel",
+     "fields": [
+      "Hotel",
+      "Forecast vs 2026 (pts)"
+     ]
+    },
+    {
+     "type": "tableEx",
+     "title": "Drivers per hotel",
+     "fields": [
+      "Hotel",
+      "Airport",
+      "Seats",
+      "Pace",
+      "2026",
+      "2027 fcst",
+      "Fcst room rev"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p5",
+   "name": "Live PMS Feed",
+   "filters": [],
+   "visuals": [
+    {
+     "type": "card",
+     "title": null,
+     "fields": [
+      "Bookings in the last 24 hours"
+     ]
+    },
+    {
+     "type": "card",
+     "title": null,
+     "fields": [
+      "Room revenue booked, last 24 hours"
+     ]
+    },
+    {
+     "type": "card",
+     "title": null,
+     "fields": [
+      "Reservations in the PMS"
+     ]
+    },
+    {
+     "type": "card",
+     "title": null,
+     "fields": [
+      "Latest booking saved at (UTC)"
+     ]
+    },
+    {
+     "type": "tableEx",
+     "title": "Latest reservations in the PMS",
+     "fields": [
+      "Saved at (UTC)",
+      "Confirmation",
+      "Hotel",
+      "Channel",
+      "Arrival",
+      "Nights",
+      "Board",
+      "Status"
+     ]
+    },
+    {
+     "type": "barChart",
+     "title": "Bookings in the last 24 hours, by hotel",
+     "fields": [
+      "Hotel",
+      "Bookings, last 24h"
+     ]
+    },
+    {
+     "type": "donutChart",
+     "title": "Last 24 hours bookings by channel",
+     "fields": [
+      "Channel",
+      "Bookings, last 24h"
+     ]
+    }
+   ]
+  }
+ ],
+ "theme": {
+  "name": "Kyanos Aegean",
+  "dataColors": [
+   "#0B4F8A",
+   "#22A39F",
+   "#F2A541",
+   "#E4572E",
+   "#7A9E7E",
+   "#6C5B7B",
+   "#4FA3D9",
+   "#B8C4D6",
+   "#2E6F95",
+   "#C97B63"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#1F2A44",
+  "tableAccent": "#0B4F8A",
+  "good": "#2E9E6A",
+  "bad": "#D64545",
+  "neutral": "#F2A541",
+  "maximum": "#0B4F8A",
+  "center": "#9FC3E7",
+  "minimum": "#E8F1FA",
+  "textClasses": {
+   "callout": {
+    "fontSize": 24,
+    "fontFace": "Segoe UI Semibold",
+    "color": "#0B3C5D"
+   },
+   "title": {
+    "fontSize": 12,
+    "fontFace": "Segoe UI Semibold",
+    "color": "#1F2A44"
+   },
+   "header": {
+    "fontSize": 12,
+    "fontFace": "Segoe UI Semibold",
+    "color": "#1F2A44"
+   },
+   "label": {
+    "fontSize": 10,
+    "fontFace": "Segoe UI",
+    "color": "#5B6B82"
+   }
+  }
+ },
+ "agent_instructions": "## Role\nYou are the **Kyanos Revenue & Guest Assistant** for Kyanos Hotels & Resorts (fictional Greek hotel group: 24 hotels - 20 seasonal resorts on Crete, Rhodes, Kos, Corfu, the Cyclades, Halkidiki, the Peloponnese, Zakynthos and Attica, plus 3 year-round city hotels in Athens, Heraklion and Thessaloniki).\nUsers are general managers, revenue managers, sales and the executive team. Answer in the language of the question (Greek or English).\n\n## Time context\n- Today / data snapshot = **6 October 2026**. Dates up to 6 Oct 2026 are actuals; later dates are on-the-books (future reservations) or forecast.\n- \"This season\", \"this year\", \"YTD\" = **Jan-Sep 2026** (closed months: filter dim_date[is_closed_ytd] = TRUE and dim_date[year] = 2026). \"Last year\" = the same months of 2025.\n- \"Next season\", \"2027\", \"forecast\", \"outlook\" = table fact_occupancy_forecast (Jan-Sep 2027), measures in folder \"Forecast 2027\".\n- \"Today\", \"live\", \"right now\" = table live_pms_reservation (mirrored PMS, near real time); \"bookings today\" / \"last 24 hours\" = [Bookings Last 24h (live)] and [Booked Revenue Last 24h (live)] (rolling 24-hour window).\n\n## KPI definitions - always use the model measures, never recompute\n- Occupancy = [Occupancy %]; ADR = [ADR]; RevPAR = [RevPAR]; TRevPAR = [TRevPAR]; revenue = [Total Revenue] (rooms + F&B and other); room revenue = [Room Revenue].\n- Versus last year: [RevPAR vs LY %], [ADR vs LY %], [Occupancy vs LY (pts)], [Total Revenue vs LY %].\n- Profitability: [GOP], [GOP Margin %], [GOPPAR] (costs come from SAP, monthly).\n- Channels: [Direct Share %] (direct web + call centre share of room revenue), channel / channel_group / tour_operator in fact_reservation. \"OTA\" = Booking.com + Expedia.\n- Guests: dim_guest (country, loyalty_tier = Blue/Silver/Gold/Platinum/Non-member from Salesforce Privilege Club), [Privilege Club Share %].\n- Service quality: fact_guest_case from Salesforce: [Complaints], [Avg Case CSAT] (1-5), [Complaints per 1,000 Room Nights], sub_category (e.g. \"Air conditioning\").\n- Market: [Airline Seat Growth %] = scheduled airline seats at the hotel's airport vs last year.\n- Forecast: [Forecast Occupancy %], [Last Year Occupancy %], [Forecast vs LY (pts)], [Booking Pace vs LY (pts)], [Seat Growth at Airport %], [Forecast Room Revenue].\n\n## Business vocabulary\n- Hotels are named \"Kyanos <place>\" (e.g. \"Kyanos Elounda Palace\"); users may say only the place (\"Elounda\", \"Marmari\", \"Ixia\"). Match on dim_hotel[hotel_name] or hotel_short_name.\n- Region/destination values: Crete, Rhodes, Kos, Corfu, Cyclades, Halkidiki, Macedonia, Peloponnese, Attica, Zakynthos.\n- Concepts: Luxury Resort, Adults-Only Resort, Family Resort, All-Inclusive Resort, City Hotel.\n- \"Underperforming\" = lowest [RevPAR vs LY %]. \"Pace\" = [Booking Pace vs LY (pts)]. \"VIP\" = loyalty_tier Gold or Platinum.\n\n## Answer style\nLead with the number(s), then one short line of interpretation (why, using drivers such as airline seats, channel mix, complaints). Use compact tables for rankings (max 10 rows). Format money in EUR, percentages with one decimal. If a question cannot be answered from the model, say so plainly and name the closest available data. Never invent hotels, guests or numbers.\n",
+ "agent_measures": {
+  "fact_hotel_day": [
+   "Rooms Available",
+   "Rooms Sold",
+   "Occupancy %",
+   "Room Revenue",
+   "F&B and Other Revenue",
+   "Total Revenue",
+   "ADR",
+   "RevPAR",
+   "TRevPAR",
+   "Guest Arrivals",
+   "Occupancy % LY",
+   "ADR LY",
+   "RevPAR LY",
+   "Room Revenue LY",
+   "Total Revenue LY",
+   "Occupancy vs LY (pts)",
+   "ADR vs LY %",
+   "RevPAR vs LY %",
+   "Total Revenue vs LY %"
+  ],
+  "fact_hotel_cost": [
+   "Operating Costs",
+   "GOP",
+   "GOP Margin %",
+   "GOPPAR",
+   "GOP Margin % LY"
+  ],
+  "fact_reservation": [
+   "Bookings",
+   "Cancellations",
+   "Cancellation Rate %",
+   "Avg Lead Time (days)",
+   "Avg Length of Stay",
+   "Booked Room Revenue",
+   "Direct Share %",
+   "Direct Share % LY",
+   "Privilege Club Share %"
+  ],
+  "fact_guest_case": [
+   "Guest Cases",
+   "Complaints",
+   "Avg Case CSAT",
+   "Complaints per 1,000 Room Nights"
+  ],
+  "fact_airport_seats": [
+   "Airline Seats",
+   "Airline Seats LY",
+   "Airline Seat Growth %"
+  ],
+  "fact_occupancy_forecast": [
+   "Forecast Occupancy %",
+   "Last Year Occupancy %",
+   "On-the-Books %",
+   "On-the-Books LY %",
+   "Forecast vs LY (pts)",
+   "Booking Pace vs LY (pts)",
+   "Forecast Room Revenue",
+   "Forecast Room Revenue vs LY %",
+   "Seat Growth at Airport %"
+  ],
+  "live_pms_reservation": [
+   "PMS Reservations (live)",
+   "Bookings Last 24h (live)",
+   "Booked Revenue Last 24h (live)",
+   "Last PMS Booking"
+  ]
+ },
+ "ontology": {
+  "entities": [
+   {
+    "name": "Hotel",
+    "table": "iq_hotel",
+    "key": "hotel_id",
+    "display": "hotel_name",
+    "properties": 15
+   },
+   {
+    "name": "Airport",
+    "table": "iq_airport",
+    "key": "airport_code",
+    "display": "airport_name",
+    "properties": 5
+   },
+   {
+    "name": "VipGuest",
+    "table": "iq_vip_guest",
+    "key": "guest_id",
+    "display": "guest_name",
+    "properties": 8
+   },
+   {
+    "name": "UpcomingStay",
+    "table": "iq_upcoming_stay",
+    "key": "reservation_id",
+    "display": "confirmation_no",
+    "properties": 11
+   },
+   {
+    "name": "OpenCase",
+    "table": "iq_open_case",
+    "key": "case_id",
+    "display": "case_id",
+    "properties": 9
+   },
+   {
+    "name": "TourOperator",
+    "table": "iq_tour_operator",
+    "key": "tour_operator_id",
+    "display": "tour_operator_name",
+    "properties": 5
+   }
+  ],
+  "relationships": [
+   {
+    "name": "served_by",
+    "source": "Hotel",
+    "target": "Airport",
+    "table": "iq_hotel",
+    "source_key": "hotel_id",
+    "fk": "airport_code"
+   },
+   {
+    "name": "stays_at",
+    "source": "UpcomingStay",
+    "target": "Hotel",
+    "table": "iq_upcoming_stay",
+    "source_key": "reservation_id",
+    "fk": "hotel_id"
+   },
+   {
+    "name": "booked_by",
+    "source": "UpcomingStay",
+    "target": "VipGuest",
+    "table": "iq_upcoming_stay",
+    "source_key": "reservation_id",
+    "fk": "guest_id"
+   },
+   {
+    "name": "sold_by",
+    "source": "UpcomingStay",
+    "target": "TourOperator",
+    "table": "iq_upcoming_stay",
+    "source_key": "reservation_id",
+    "fk": "tour_operator_id"
+   },
+   {
+    "name": "case_at",
+    "source": "OpenCase",
+    "target": "Hotel",
+    "table": "iq_open_case",
+    "source_key": "case_id",
+    "fk": "hotel_id"
+   }
+  ]
+ },
+ "pms_ddl": {
+  "pms.Hotel": [
+   "HotelId INT NOT NULL PRIMARY KEY",
+   "HotelCode VARCHAR(10) NOT NULL",
+   "HotelName NVARCHAR(80) NOT NULL",
+   "Destination NVARCHAR(40)",
+   "Region NVARCHAR(40)",
+   "Airport CHAR(3)",
+   "Stars TINYINT",
+   "Concept NVARCHAR(40)",
+   "Rooms INT",
+   "Latitude DECIMAL(9,6)",
+   "Longitude DECIMAL(9,6)",
+   "OpenMMDD CHAR(5)",
+   "CloseMMDD CHAR(5)",
+   "IsSeasonal BIT",
+   "GeneralManager NVARCHAR(60)",
+   "GMEmail NVARCHAR(80)"
+  ],
+  "pms.RoomType": [
+   "RoomTypeId INT NOT NULL PRIMARY KEY",
+   "HotelId INT NOT NULL",
+   "RoomTypeCode VARCHAR(6)",
+   "RoomTypeName NVARCHAR(60)",
+   "RoomCount INT",
+   "RateMultiplier DECIMAL(5,2)"
+  ],
+  "pms.Guest": [
+   "GuestId INT NOT NULL PRIMARY KEY",
+   "FirstName NVARCHAR(40)",
+   "LastName NVARCHAR(40)",
+   "Email NVARCHAR(120)",
+   "Country CHAR(2)",
+   "CountryName NVARCHAR(40)",
+   "Language NVARCHAR(20)",
+   "LoyaltyNumber VARCHAR(12) NULL",
+   "CreatedAt DATETIME2(3)"
+  ],
+  "pms.Reservation": [
+   "ReservationId BIGINT NOT NULL PRIMARY KEY",
+   "ConfirmationNo VARCHAR(12) NOT NULL",
+   "HotelId INT NOT NULL",
+   "RoomTypeId INT NOT NULL",
+   "GuestId INT NOT NULL",
+   "BookingDate DATE NOT NULL",
+   "ArrivalDate DATE NOT NULL",
+   "DepartureDate DATE NOT NULL",
+   "Nights INT NOT NULL",
+   "Adults TINYINT",
+   "Children TINYINT",
+   "Channel NVARCHAR(30)",
+   "MarketSegment NVARCHAR(30)",
+   "TourOperator NVARCHAR(40) NULL",
+   "BoardType NVARCHAR(20)",
+   "RateAmount DECIMAL(10,2)",
+   "RoomRevenue DECIMAL(12,2)",
+   "ExtrasRevenue DECIMAL(12,2)",
+   "Status NVARCHAR(15)",
+   "CancelDate DATE NULL",
+   "CreatedAt DATETIME2(3)",
+   "ModifiedAt DATETIME2(3)"
+  ]
+ },
+ "hotels": [
+  {
+   "HotelId": 1,
+   "HotelCode": "KYN-ELO",
+   "HotelName": "Kyanos Elounda Palace",
+   "Destination": "Elounda",
+   "Region": "Crete",
+   "Airport": "HER",
+   "Stars": 5,
+   "Concept": "Luxury Resort",
+   "Rooms": 280,
+   "Latitude": 35.265,
+   "Longitude": 25.723,
+   "OpenMMDD": "04-01",
+   "CloseMMDD": "11-05",
+   "IsSeasonal": 1,
+   "GeneralManager": "Maria Nikolaou",
+   "GMEmail": "gm.elo@kyanos-hotels.example"
+  },
+  {
+   "HotelId": 2,
+   "HotelCode": "KYN-AGN",
+   "HotelName": "Kyanos Agios Nikolaos Bay",
+   "Destination": "Agios Nikolaos",
+   "Region": "Crete",
+   "Airport": "HER",
+   "Stars": 5,
+   "Concept": "Luxury Resort",
+   "Rooms": 220,
+   "Latitude": 35.19,
+   "Longitude": 25.716,
+   "OpenMMDD": "04-05",
+   "CloseMMDD": "10-31",
+   "IsSeasonal": 1,
+   "GeneralManager": "Nikos Pappas",
+   "GMEmail": "gm.agn@kyanos-hotels.example"
+  },
+  {
+   "HotelId": 3,
+   "HotelCode": "KYN-HER",
+   "HotelName": "Kyanos Heraklion City",
+   "Destination": "Heraklion",
+   "Region": "Crete",
+   "Airport": "HER",
+   "Stars": 4,
+   "Concept": "City Hotel",
+   "Rooms": 160,
+   "Latitude": 35.339,
+   "Longitude": 25.133,
+   "OpenMMDD": "01-01",
+   "CloseMMDD": "12-31",
+   "IsSeasonal": 0,
+   "GeneralManager": "Eleni Georgiou",
+   "GMEmail": "gm.her@kyanos-hotels.example"
+  },
+  {
+   "HotelId": 4,
+   "HotelCode": "KYN-RET",
+   "HotelName": "Kyanos Rethymno Mare",
+   "Destination": "Rethymno",
+   "Region": "Crete",
+   "Airport": "CHQ",
+   "Stars": 4,
+   "Concept": "Family Resort",
+   "Rooms": 380,
+   "Latitude": 35.37,
+   "Longitude": 24.54,
+   "OpenMMDD": "04-10",
+   "CloseMMDD": "10-31",
+   "IsSeasonal": 1,
+   "GeneralManager": "Kostas Manolakis",
+   "GMEmail": "gm.ret@kyanos-hotels.example"
+  },
+  {
+   "HotelId": 5,
+   "HotelCode": "KYN-CHA",
+   "HotelName": "Kyanos Chania Kalyves",
+   "Destination": "Chania",
+   "Region": "Crete",
+   "Airport": "CHQ",
+   "Stars": 4,
+   "Concept": "Family Resort",
+   "Rooms": 240,
+   "Latitude": 35.456,
+   "Longitude": 24.17,
+   "OpenMMDD": "04-15",
+   "CloseMMDD": "10-25",
+   "IsSeasonal": 1,
+   "GeneralManager": "Katerina Papadaki",
+   "GMEmail": "gm.cha@kyanos-hotels.example"
+  },
+  {
+   "HotelId": 6,
+   "HotelCode": "KYN-MAL",
+   "HotelName": "Kyanos Malia Riviera",
+   "Destination": "Malia",
+   "Region": "Crete",
+   "Airport": "HER",
+   "Stars": 4,
+   "Concept": "All-Inclusive Resort",
+   "Rooms": 420,
+   "Latitude": 35.293,
+   "Longitude": 25.463,
+   "OpenMMDD": "04-10",
+   "CloseMMDD": "10-31",
+   "IsSeasonal": 1,
+   "GeneralManager": "Dimitris Vlachou",
+   "GMEmail": "gm.mal@kyanos-hotels.example"
+  },
+  {
+   "HotelId": 7,
+   "HotelCode": "KYN-IXI",
+   "HotelName": "Kyanos Rhodes Ixia Grand",
+   "Destination": "Ixia",
+   "Region": "Rhodes",
+   "Airport": "RHO",
+   "Stars": 5,
+   "Concept": "Luxury Resort",
+   "Rooms": 360,
+   "Latitude": 36.417,
+   "Longitude": 28.189,
+   "OpenMMDD": "04-01",
+   "CloseMMDD": "11-01",
+   "IsSeasonal": 1,
+   "GeneralManager": "Sofia Raptis",
+   "GMEmail": "gm.ixi@kyanos-hotels.example"
+  },
+  {
+   "HotelId": 8,
+   "HotelCode": "KYN-LIN",
+   "HotelName": "Kyanos Lindos Blue",
+   "Destination": "Lindos",
+   "Region": "Rhodes",
+   "Airport": "RHO",
+   "Stars": 5,
+   "Concept": "Adults-Only Resort",
+   "Rooms": 180,
+   "Latitude": 36.092,
+   "Longitude": 28.086,
+   "OpenMMDD": "04-10",
+   "CloseMMDD": "10-31",
+   "IsSeasonal": 1,
+   "GeneralManager": "Yannis Alexiou",
+   "GMEmail": "gm.lin@kyanos-hotels.example"
+  },
+  {
+   "HotelId": 9,
+   "HotelCode": "KYN-FAL",
+   "HotelName": "Kyanos Faliraki Family",
+   "Destination": "Faliraki",
+   "Region": "Rhodes",
+   "Airport": "RHO",
+   "Stars": 4,
+   "Concept": "All-Inclusive Resort",
+   "Rooms": 450,
+   "Latitude": 36.342,
+   "Longitude": 28.202,
+   "OpenMMDD": "04-15",
+   "CloseMMDD": "10-31",
+   "IsSeasonal": 1,
+   "GeneralManager": "Anna Dimou",
+   "GMEmail": "gm.fal@kyanos-hotels.example"
+  },
+  {
+   "HotelId": 10,
+   "HotelCode": "KYN-MAR",
+   "HotelName": "Kyanos Kos Marmari",
+   "Destination": "Marmari",
+   "Region": "Kos",
+   "Airport": "KGS",
+   "Stars": 4,
+   "Concept": "All-Inclusive Resort",
+   "Rooms": 400,
+   "Latitude": 36.875,
+   "Longitude": 27.165,
+   "OpenMMDD": "04-20",
+   "CloseMMDD": "10-25",
+   "IsSeasonal": 1,
+   "GeneralManager": "Petros Stavrou",
+   "GMEmail": "gm.mar@kyanos-hotels.example"
+  },
+  {
+   "HotelId": 11,
+   "HotelCode": "KYN-PSA",
+   "HotelName": "Kyanos Kos Psalidi Suites",
+   "Destination": "Psalidi",
+   "Region": "Kos",
+   "Airport": "KGS",
+   "Stars": 5,
+   "Concept": "Luxury Resort",
+   "Rooms": 200,
+   "Latitude": 36.866,
+   "Longitude": 27.308,
+   "OpenMMDD": "04-20",
+   "CloseMMDD": "10-31",
+   "IsSeasonal": 1,
+   "GeneralManager": "Christina Karras",
+   "GMEmail": "gm.psa@kyanos-hotels.example"
+  },
+  {
+   "HotelId": 12,
+   "HotelCode": "KYN-DAS",
+   "HotelName": "Kyanos Corfu Dassia",
+   "Destination": "Dassia",
+   "Region": "Corfu",
+   "Airport": "CFU",
+   "Stars": 5,
+   "Concept": "Luxury Resort",
+   "Rooms": 320,
+   "Latitude": 39.687,
+   "Longitude": 19.838,
+   "OpenMMDD": "04-25",
+   "CloseMMDD": "10-25",
+   "IsSeasonal": 1,
+   "GeneralManager": "Giorgos Andreou",
+   "GMEmail": "gm.das@kyanos-hotels.example"
+  },
+  {
+   "HotelId": 13,
+   "HotelCode": "KYN-KAV",
+   "HotelName": "Kyanos Kavos Lagoon",
+   "Destination": "Kavos",
+   "Region": "Corfu",
+   "Airport": "CFU",
+   "Stars": 4,
+   "Concept": "All-Inclusive Resort",
+   "Rooms": 260,
+   "Latitude": 39.385,
+   "Longitude": 20.119,
+   "OpenMMDD": "05-01",
+   "CloseMMDD": "10-15",
+   "IsSeasonal": 1,
+   "GeneralManager": "Maria Nikolaou",
+   "GMEmail": "gm.kav@kyanos-hotels.example"
+  },
+  {
+   "HotelId": 14,
+   "HotelCode": "KYN-PAL",
+   "HotelName": "Kyanos Paleokastritsa",
+   "Destination": "Paleokastritsa",
+   "Region": "Corfu",
+   "Airport": "CFU",
+   "Stars": 4,
+   "Concept": "Family Resort",
+   "Rooms": 150,
+   "Latitude": 39.672,
+   "Longitude": 19.709,
+   "OpenMMDD": "04-25",
+   "CloseMMDD": "10-25",
+   "IsSeasonal": 1,
+   "GeneralManager": "Nikos Pappas",
+   "GMEmail": "gm.pal@kyanos-hotels.example"
+  },
+  {
+   "HotelId": 15,
+   "HotelCode": "KYN-ORN",
+   "HotelName": "Kyanos Mykonos Ornos",
+   "Destination": "Ornos",
+   "Region": "Cyclades",
+   "Airport": "JMK",
+   "Stars": 5,
+   "Concept": "Luxury Resort",
+   "Rooms": 120,
+   "Latitude": 37.424,
+   "Longitude": 25.32,
+   "OpenMMDD": "04-25",
+   "CloseMMDD": "10-31",
+   "IsSeasonal": 1,
+   "GeneralManager": "Eleni Georgiou",
+   "GMEmail": "gm.orn@kyanos-hotels.example"
+  },
+  {
+   "HotelId": 16,
+   "HotelCode": "KYN-CAL",
+   "HotelName": "Kyanos Santorini Caldera",
+   "Destination": "Imerovigli",
+   "Region": "Cyclades",
+   "Airport": "JTR",
+   "Stars": 5,
+   "Concept": "Adults-Only Resort",
+   "Rooms": 90,
+   "Latitude": 36.432,
+   "Longitude": 25.423,
+   "OpenMMDD": "04-01",
+   "CloseMMDD": "11-05",
+   "IsSeasonal": 1,
+   "GeneralManager": "Kostas Manolakis",
+   "GMEmail": "gm.cal@kyanos-hotels.example"
+  },
+  {
+   "HotelId": 17,
+   "HotelCode": "KYN-KAS",
+   "HotelName": "Kyanos Kassandra Palace",
+   "Destination": "Kassandra",
+   "Region": "Halkidiki",
+   "Airport": "SKG",
+   "Stars": 5,
+   "Concept": "Luxury Resort",
+   "Rooms": 340,
+   "Latitude": 40.021,
+   "Longitude": 23.437,
+   "OpenMMDD": "05-01",
+   "CloseMMDD": "10-15",
+   "IsSeasonal": 1,
+   "GeneralManager": "Katerina Papadaki",
+   "GMEmail": "gm.kas@kyanos-hotels.example"
+  },
+  {
+   "HotelId": 18,
+   "HotelCode": "KYN-SIT",
+   "HotelName": "Kyanos Sithonia Beach",
+   "Destination": "Sithonia",
+   "Region": "Halkidiki",
+   "Airport": "SKG",
+   "Stars": 4,
+   "Concept": "Family Resort",
+   "Rooms": 300,
+   "Latitude": 40.064,
+   "Longitude": 23.856,
+   "OpenMMDD": "05-01",
+   "CloseMMDD": "10-10",
+   "IsSeasonal": 1,
+   "GeneralManager": "Dimitris Vlachou",
+   "GMEmail": "gm.sit@kyanos-hotels.example"
+  },
+  {
+   "HotelId": 19,
+   "HotelCode": "KYN-THE",
+   "HotelName": "Kyanos Thessaloniki Center",
+   "Destination": "Thessaloniki",
+   "Region": "Macedonia",
+   "Airport": "SKG",
+   "Stars": 4,
+   "Concept": "City Hotel",
+   "Rooms": 180,
+   "Latitude": 40.633,
+   "Longitude": 22.941,
+   "OpenMMDD": "01-01",
+   "CloseMMDD": "12-31",
+   "IsSeasonal": 0,
+   "GeneralManager": "Sofia Raptis",
+   "GMEmail": "gm.the@kyanos-hotels.example"
+  },
+  {
+   "HotelId": 20,
+   "HotelCode": "KYN-OLY",
+   "HotelName": "Kyanos Olympia Riviera",
+   "Destination": "Kyllini",
+   "Region": "Peloponnese",
+   "Airport": "GPA",
+   "Stars": 5,
+   "Concept": "Family Resort",
+   "Rooms": 380,
+   "Latitude": 37.919,
+   "Longitude": 21.127,
+   "OpenMMDD": "04-01",
+   "CloseMMDD": "10-31",
+   "IsSeasonal": 1,
+   "GeneralManager": "Yannis Alexiou",
+   "GMEmail": "gm.oly@kyanos-hotels.example"
+  },
+  {
+   "HotelId": 21,
+   "HotelCode": "KYN-MES",
+   "HotelName": "Kyanos Messinia Bay",
+   "Destination": "Messinia",
+   "Region": "Peloponnese",
+   "Airport": "KLX",
+   "Stars": 5,
+   "Concept": "Luxury Resort",
+   "Rooms": 260,
+   "Latitude": 36.979,
+   "Longitude": 21.664,
+   "OpenMMDD": "04-01",
+   "CloseMMDD": "11-01",
+   "IsSeasonal": 1,
+   "GeneralManager": "Anna Dimou",
+   "GMEmail": "gm.mes@kyanos-hotels.example"
+  },
+  {
+   "HotelId": 22,
+   "HotelCode": "KYN-ACR",
+   "HotelName": "Kyanos Athens Acropolis",
+   "Destination": "Athens",
+   "Region": "Attica",
+   "Airport": "ATH",
+   "Stars": 5,
+   "Concept": "City Hotel",
+   "Rooms": 210,
+   "Latitude": 37.969,
+   "Longitude": 23.729,
+   "OpenMMDD": "01-01",
+   "CloseMMDD": "12-31",
+   "IsSeasonal": 0,
+   "GeneralManager": "Petros Stavrou",
+   "GMEmail": "gm.acr@kyanos-hotels.example"
+  },
+  {
+   "HotelId": 23,
+   "HotelCode": "KYN-VOU",
+   "HotelName": "Kyanos Vouliagmeni Riviera",
+   "Destination": "Vouliagmeni",
+   "Region": "Attica",
+   "Airport": "ATH",
+   "Stars": 5,
+   "Concept": "Luxury Resort",
+   "Rooms": 150,
+   "Latitude": 37.81,
+   "Longitude": 23.78,
+   "OpenMMDD": "03-15",
+   "CloseMMDD": "11-30",
+   "IsSeasonal": 1,
+   "GeneralManager": "Christina Karras",
+   "GMEmail": "gm.vou@kyanos-hotels.example"
+  },
+  {
+   "HotelId": 24,
+   "HotelCode": "KYN-ZAK",
+   "HotelName": "Kyanos Zakynthos Laganas",
+   "Destination": "Laganas",
+   "Region": "Zakynthos",
+   "Airport": "ZTH",
+   "Stars": 4,
+   "Concept": "All-Inclusive Resort",
+   "Rooms": 260,
+   "Latitude": 37.73,
+   "Longitude": 20.873,
+   "OpenMMDD": "05-01",
+   "CloseMMDD": "10-20",
+   "IsSeasonal": 1,
+   "GeneralManager": "Giorgos Andreou",
+   "GMEmail": "gm.zak@kyanos-hotels.example"
+  }
+ ],
+ "notebooks": {
+  "01_Ingest_Salesforce_SAP_Airports": [
+   {
+    "kind": "md",
+    "src": "# 01 \u00b7 Ingest Salesforce, SAP and airport data\n**Kyanos Hotels & Resorts** \u2013 unified data platform demo\n\n| Source | Arrives as | Lands in |\n|---|---|---|\n| Protel-style PMS on SQL Server | **Mirroring** (near real time, no ETL) | `pms` schema \u2013 OneLake shortcut, zero copy |\n| Salesforce (Privilege Club, guest cases) | API export / connector | `crm` schema |\n| SAP (monthly hotel P&L costs) | file drop | `erp` schema |\n| Airline seat capacity (incl. published Summer 2027 schedule) | external data | `ext` schema |\n"
+   },
+   {
+    "kind": "code",
+    "src": "from pyspark.sql import functions as F\nfor s in [\"crm\", \"erp\", \"ext\"]:\n    spark.sql(f\"CREATE SCHEMA IF NOT EXISTS {s}\")\n\ndef land(path, table, casts=None):\n    df = spark.read.option(\"header\", True).option(\"inferSchema\", True).csv(f\"Files/landing/{path}\")\n    for c, t in (casts or {}).items():\n        df = df.withColumn(c, F.col(c).cast(t))\n    df = df.withColumn(\"_ingested_at\", F.current_timestamp()).withColumn(\"_source_file\", F.lit(path))\n    df.write.mode(\"overwrite\").option(\"overwriteSchema\", \"true\").saveAsTable(table)\n    print(f\"{table:32s} {df.count():>8,} rows\")\n\nland(\"salesforce/privilege_club_members.csv\", \"crm.privilege_club_member\", {\"join_date\": \"date\", \"marketing_opt_in\": \"boolean\"})\nland(\"salesforce/guest_cases.csv\", \"crm.guest_case\", {\"created_date\": \"date\", \"csat_score\": \"int\"})\nland(\"sap/hotel_costs_monthly.csv\", \"erp.hotel_cost_monthly\", {\"posting_month\": \"date\", \"amount_eur\": \"decimal(14,2)\", \"gl_account\": \"string\"})\nland(\"external/airport_seat_capacity_weekly.csv\", \"ext.airport_seat_capacity\", {\"week_start\": \"date\"})"
+   },
+   {
+    "kind": "code",
+    "src": "# The PMS arrives through Mirroring - already Delta in OneLake, nothing to copy\ndisplay(spark.sql(\"SELECT Status, COUNT(*) AS reservations, ROUND(SUM(RoomRevenue)/1e6,1) AS room_revenue_m FROM pms.Reservation GROUP BY Status ORDER BY 2 DESC\"))"
+   }
+  ],
+  "02_Build_Gold_Model": [
+   {
+    "kind": "md",
+    "src": "# 02 \u00b7 Build the gold model\nJoins PMS (mirrored), Salesforce, SAP and airport data into one conformed star schema in the `gold` schema.\nPower BI reads it with **Direct Lake** \u2013 no import refresh, no 05:00\u201308:00 window.\n\nSnapshot date of the demo data: **2026-10-06**"
+   },
+   {
+    "kind": "code",
+    "src": "from pyspark.sql import functions as F, Window as W\nAS_OF = \"2026-10-06\"\nspark.sql(\"CREATE SCHEMA IF NOT EXISTS gold\")\nhotel, rt, guest, res = [spark.table(f\"pms.{t}\") for t in [\"Hotel\", \"RoomType\", \"Guest\", \"Reservation\"]]\nmembers, cases = spark.table(\"crm.privilege_club_member\"), spark.table(\"crm.guest_case\")\ncost, seats = spark.table(\"erp.hotel_cost_monthly\"), spark.table(\"ext.airport_seat_capacity\")\n\ndef save(df, name):\n    df.write.mode(\"overwrite\").option(\"overwriteSchema\", \"true\").saveAsTable(f\"gold.{name}\")\n    print(f\"gold.{name:28s} {spark.table('gold.' + name).count():>9,} rows\")"
+   },
+   {
+    "kind": "code",
+    "src": "# dim_date\nd = spark.sql(\"SELECT explode(sequence(to_date('2025-01-01'), to_date('2027-12-31'), interval 1 day)) AS date\")\nasof_month = int(AS_OF[5:7])\ndim_date = (d.select(\"date\",\n        F.year(\"date\").alias(\"year\"),\n        F.concat(F.lit(\"Q\"), F.quarter(\"date\")).alias(\"quarter\"),\n        F.month(\"date\").alias(\"month_num\"),\n        F.date_format(\"date\", \"MMM\").alias(\"month\"),\n        F.date_format(\"date\", \"yyyy-MM\").alias(\"year_month\"),\n        F.trunc(\"date\", \"month\").alias(\"month_start\"),\n        F.date_trunc(\"week\", \"date\").cast(\"date\").alias(\"week_start\"),\n        F.dayofweek(\"date\").alias(\"weekday_num\"),\n        F.date_format(\"date\", \"EEE\").alias(\"weekday\"),\n        F.when(F.month(\"date\").isin(7, 8), \"Peak\").when(F.month(\"date\").isin(6, 9), \"High\")\n         .when(F.month(\"date\").isin(4, 5, 10), \"Shoulder\").otherwise(\"Winter\").alias(\"season\"),\n        (F.col(\"date\") <= F.lit(AS_OF)).alias(\"is_actual\"),\n        (F.month(\"date\") < asof_month).alias(\"is_closed_ytd\")))\nsave(dim_date, \"dim_date\")\n\n# dim_hotel / dim_airport\nAIRPORTS = [(\"HER\",\"Heraklion\",\"Crete\"),(\"CHQ\",\"Chania\",\"Crete\"),(\"RHO\",\"Rhodes\",\"Rhodes\"),(\"KGS\",\"Kos\",\"Kos\"),(\"CFU\",\"Corfu\",\"Corfu\"),\n            (\"JMK\",\"Mykonos\",\"Cyclades\"),(\"JTR\",\"Santorini\",\"Cyclades\"),(\"SKG\",\"Thessaloniki\",\"Macedonia\"),(\"GPA\",\"Araxos (Patras)\",\"Peloponnese\"),\n            (\"KLX\",\"Kalamata\",\"Peloponnese\"),(\"ATH\",\"Athens\",\"Attica\"),(\"ZTH\",\"Zakynthos\",\"Zakynthos\")]\ndim_airport = spark.createDataFrame(AIRPORTS, \"airport_code string, airport_name string, airport_region string\")\nsave(dim_airport, \"dim_airport\")\ndim_hotel = hotel.select(F.col(\"HotelId\").alias(\"hotel_id\"), F.col(\"HotelCode\").alias(\"hotel_code\"), F.col(\"HotelName\").alias(\"hotel_name\"),\n    F.regexp_replace(\"HotelName\", \"^Kyanos \", \"\").alias(\"hotel_short_name\"), F.col(\"Destination\").alias(\"destination\"), F.col(\"Region\").alias(\"region\"),\n    F.col(\"Airport\").alias(\"airport_code\"), F.col(\"Stars\").cast(\"int\").alias(\"stars\"), F.col(\"Concept\").alias(\"concept\"), F.col(\"Rooms\").alias(\"rooms\"),\n    F.col(\"Latitude\").cast(\"double\").alias(\"latitude\"), F.col(\"Longitude\").cast(\"double\").alias(\"longitude\"),\n    F.when(F.col(\"IsSeasonal\"), \"Seasonal resort\").otherwise(\"Year-round\").alias(\"operating_model\"),\n    F.col(\"GeneralManager\").alias(\"general_manager\"), F.col(\"GMEmail\").alias(\"gm_email\"))\nsave(dim_hotel, \"dim_hotel\")"
+   },
+   {
+    "kind": "code",
+    "src": "# dim_guest  (PMS guest profile + Salesforce Privilege Club)\n# Data quality: a few loyalty numbers are duplicated across Salesforce accounts -> keep one member record per id\nm = (members.dropDuplicates([\"member_id\"])\n     .select(F.col(\"member_id\"), F.col(\"tier\"), F.col(\"marketing_opt_in\"), F.col(\"top_preference\"), F.col(\"lifetime_nights\"), F.col(\"join_date\")))\ndim_guest = (guest.join(m, guest.LoyaltyNumber == m.member_id, \"left\")\n    .select(F.col(\"GuestId\").alias(\"guest_id\"), F.concat_ws(\" \", \"FirstName\", \"LastName\").alias(\"guest_name\"), F.col(\"Email\").alias(\"email\"),\n            F.col(\"Country\").alias(\"country_code\"), F.col(\"CountryName\").alias(\"country\"), F.col(\"Language\").alias(\"language\"),\n            F.col(\"LoyaltyNumber\").alias(\"member_id\"), F.col(\"member_id\").isNotNull().alias(\"is_member\"),\n            F.coalesce(\"tier\", F.lit(\"Non-member\")).alias(\"loyalty_tier\"), F.coalesce(\"marketing_opt_in\", F.lit(False)).alias(\"marketing_opt_in\"),\n            \"top_preference\", F.coalesce(\"lifetime_nights\", F.lit(0)).alias(\"lifetime_nights\"))\n    .dropDuplicates([\"guest_id\"]))\nsave(dim_guest, \"dim_guest\")\n\n# fact_reservation\nrtn = rt.select(F.col(\"RoomTypeId\"), F.col(\"RoomTypeName\").alias(\"room_type\"))\nfact_res = (res.join(rtn, \"RoomTypeId\", \"left\").select(\n    F.col(\"ReservationId\").alias(\"reservation_id\"), F.col(\"ConfirmationNo\").alias(\"confirmation_no\"), F.col(\"HotelId\").alias(\"hotel_id\"),\n    F.col(\"GuestId\").alias(\"guest_id\"), \"room_type\", F.col(\"BookingDate\").alias(\"booking_date\"), F.col(\"ArrivalDate\").alias(\"arrival_date\"),\n    F.col(\"DepartureDate\").alias(\"departure_date\"), F.col(\"Nights\").alias(\"nights\"),\n    F.datediff(\"ArrivalDate\", \"BookingDate\").alias(\"lead_time_days\"), F.col(\"Channel\").alias(\"channel\"),\n    F.when(F.col(\"Channel\").startswith(\"Direct\"), \"Direct\").when(F.col(\"Channel\").isin(\"Booking.com\", \"Expedia\"), \"OTA\")\n     .when(F.col(\"Channel\").isin(\"Tour Operator\", \"Wholesaler\"), \"Tour Operator & Wholesale\").otherwise(\"Corporate & MICE\").alias(\"channel_group\"),\n    F.col(\"MarketSegment\").alias(\"market_segment\"), F.col(\"TourOperator\").alias(\"tour_operator\"), F.col(\"BoardType\").alias(\"board_type\"),\n    F.col(\"Adults\").cast(\"int\").alias(\"adults\"), F.col(\"Children\").cast(\"int\").alias(\"children\"), F.col(\"Status\").alias(\"status\"),\n    (F.col(\"Status\") == \"Cancelled\").alias(\"is_cancelled\"), F.col(\"Status\").isin(\"Checked-Out\", \"In-House\", \"Confirmed\").alias(\"is_active\"),\n    F.col(\"RateAmount\").cast(\"double\").alias(\"rate_amount\"), F.col(\"RoomRevenue\").cast(\"double\").alias(\"room_revenue\"),\n    F.col(\"ExtrasRevenue\").cast(\"double\").alias(\"extras_revenue\"), F.col(\"CancelDate\").alias(\"cancel_date\"), F.col(\"CreatedAt\").alias(\"created_at\")))\nsave(fact_res, \"fact_reservation\")"
+   },
+   {
+    "kind": "code",
+    "src": "# fact_hotel_day: one row per hotel per calendar day (rooms available vs sold, revenue, arrivals)\nact = spark.table(\"gold.fact_reservation\").where(\"is_active\")\nnights = (act.withColumn(\"i\", F.explode(F.sequence(F.lit(0), F.col(\"nights\") - 1)))\n    .select(\"hotel_id\", F.date_add(\"arrival_date\", F.col(\"i\")).alias(\"date\"),\n            (F.col(\"room_revenue\") / F.col(\"nights\")).alias(\"rr\"), (F.col(\"extras_revenue\") / F.col(\"nights\")).alias(\"xr\")))\nsold = nights.groupBy(\"hotel_id\", \"date\").agg(F.count(\"*\").alias(\"rooms_sold\"), F.sum(\"rr\").alias(\"room_revenue\"), F.sum(\"xr\").alias(\"extras_revenue\"))\narr = act.groupBy(\"hotel_id\", F.col(\"arrival_date\").alias(\"date\")).agg(F.count(\"*\").alias(\"arrivals\"))\ncal = (spark.table(\"gold.dim_date\").select(\"date\").crossJoin(hotel.select(F.col(\"HotelId\").alias(\"hotel_id\"), \"Rooms\", \"OpenMMDD\", \"CloseMMDD\", \"Airport\")))\nmd = F.date_format(\"date\", \"MM-dd\")\ncal = cal.withColumn(\"is_open\", (md >= F.col(\"OpenMMDD\")) & (md <= F.col(\"CloseMMDD\")))\nfact_day = (cal.join(sold, [\"hotel_id\", \"date\"], \"left\").join(arr, [\"hotel_id\", \"date\"], \"left\")\n    .select(\"hotel_id\", \"date\", F.when(F.col(\"is_open\"), F.col(\"Rooms\")).otherwise(0).alias(\"rooms_available\"),\n            F.coalesce(\"rooms_sold\", F.lit(0)).alias(\"rooms_sold\"), F.round(F.coalesce(\"room_revenue\", F.lit(0.0)), 2).alias(\"room_revenue\"),\n            F.round(F.coalesce(\"extras_revenue\", F.lit(0.0)), 2).alias(\"extras_revenue\"), F.coalesce(\"arrivals\", F.lit(0)).alias(\"arrivals\"),\n            (F.col(\"date\") <= F.lit(AS_OF)).alias(\"is_actual\"))\n    .withColumn(\"total_revenue\", F.round(F.col(\"room_revenue\") + F.col(\"extras_revenue\"), 2)))\nsave(fact_day, \"fact_hotel_day\")"
+   },
+   {
+    "kind": "code",
+    "src": "# fact_hotel_cost (SAP), fact_guest_case (Salesforce), fact_airport_seats (external)\nhid = hotel.select(F.col(\"HotelId\").alias(\"hotel_id\"), F.col(\"HotelCode\"))\nsave(cost.join(hid, cost.plant == hid.HotelCode).select(\"hotel_id\", F.col(\"posting_month\").alias(\"month_start\"), \"cost_category\", \"gl_account\",\n                                                       F.col(\"amount_eur\").cast(\"double\").alias(\"amount_eur\")), \"fact_hotel_cost\")\nsave(cases.join(hid, cases.hotel_code == hid.HotelCode).select(\"case_id\", \"confirmation_no\", \"hotel_id\", \"created_date\", \"category\", \"sub_category\",\n                                                             \"origin\", \"status\", \"csat_score\"), \"fact_guest_case\")\nsave(seats.where(\"week_start >= '2025-01-01'\").select(\"airport_code\", \"week_start\", F.col(\"scheduled_arriving_seats\").alias(\"arriving_seats\"), F.col(\"scheduled_flights\").alias(\"flights\"),\n                  \"season_year\", \"data_status\"), \"fact_airport_seats\")"
+   }
+  ],
+  "03_AI_Demand_Forecast_2027": [
+   {
+    "kind": "md",
+    "src": "# 03 \u00b7 AI demand forecast \u2013 Summer 2027\n**Question from revenue management:** *how full will each hotel be next season, given what is already on the books and what the airlines have scheduled?*\n\nBooking-pace model (gradient boosting, tracked in MLflow) \u2013 predicts the **change in occupancy vs last year** for every hotel-night from:\n* **booking pace** \u2013 rooms on the books today vs. the same point last year (snapshot 2026-10-06)\n* **airline seat capacity** change at the hotel's airport (published Summer 2027 schedules)\n* last-year final occupancy, month, weekday, hotel concept\n\nOutput \u2192 `gold.fact_occupancy_forecast` \u2192 Power BI page *2027 Demand Outlook*."
+   },
+   {
+    "kind": "code",
+    "src": "import pandas as pd, numpy as np, mlflow, mlflow.sklearn\nfrom pyspark.sql import functions as F\nfrom sklearn.ensemble import HistGradientBoostingRegressor\nfrom sklearn.metrics import mean_absolute_error\nAS_OF = pd.Timestamp(\"2026-10-06\")\nres = spark.table(\"gold.fact_reservation\").select(\"hotel_id\", \"booking_date\", \"arrival_date\", \"nights\", \"status\", \"cancel_date\").toPandas()\nday = spark.table(\"gold.fact_hotel_day\").toPandas()\nhotel = spark.table(\"gold.dim_hotel\").toPandas()\nseats = spark.table(\"gold.fact_airport_seats\").toPandas()\nfor c in [\"booking_date\", \"arrival_date\", \"cancel_date\"]: res[c] = pd.to_datetime(res[c])\nday[\"date\"] = pd.to_datetime(day[\"date\"]); seats[\"week_start\"] = pd.to_datetime(seats[\"week_start\"])\nprint(len(res), \"reservations,\", len(day), \"hotel-days\")"
+   },
+   {
+    "kind": "code",
+    "src": "def otb_as_of(snap):\n    \"\"\"Rooms on the books per hotel-night as they stood on the snapshot date.\"\"\"\n    r = res[(res.booking_date <= snap) & ((res.cancel_date.isna()) | (res.cancel_date > snap)) & (res.status != \"No-Show\")]\n    r = r.loc[r.index.repeat(r.nights)].copy()\n    r[\"date\"] = r.arrival_date + pd.to_timedelta(r.groupby(level=0).cumcount(), unit=\"D\")\n    return r.groupby([\"hotel_id\", \"date\"]).size().rename(\"otb_rooms\").reset_index()\n\ndef frame(year):\n    snap = AS_OF - pd.DateOffset(years=2027 - year)\n    f = day[(day.date.dt.year == year) & (day.rooms_available > 0)][[\"hotel_id\", \"date\", \"rooms_available\", \"rooms_sold\", \"room_revenue\"]].copy()\n    f = f.merge(otb_as_of(snap), on=[\"hotel_id\", \"date\"], how=\"left\").fillna({\"otb_rooms\": 0})\n    ly_otb = otb_as_of(snap - pd.DateOffset(years=1)).rename(columns={\"otb_rooms\": \"ly_otb_rooms\"})\n    ly_otb[\"date\"] = ly_otb.date + pd.Timedelta(days=364)\n    f = f.merge(ly_otb, on=[\"hotel_id\", \"date\"], how=\"left\").fillna({\"ly_otb_rooms\": 0})\n    ly = day[[\"hotel_id\", \"date\", \"rooms_sold\", \"rooms_available\", \"room_revenue\"]].rename(columns={\"rooms_sold\": \"ly_rooms_sold\", \"rooms_available\": \"ly_rooms_available\", \"room_revenue\": \"ly_room_revenue\"})\n    ly[\"date\"] = ly.date + pd.Timedelta(days=364)  # same weekday last year\n    f = f.merge(ly, on=[\"hotel_id\", \"date\"], how=\"left\")\n    f = f.merge(hotel[[\"hotel_id\", \"airport_code\", \"concept\", \"stars\", \"rooms\"]], on=\"hotel_id\")\n    f[\"week_start\"] = f.date - pd.to_timedelta(f.date.dt.weekday, unit=\"D\")\n    s = seats[[\"airport_code\", \"week_start\", \"arriving_seats\"]]\n    s_ly = s.assign(week_start=s.week_start + pd.Timedelta(days=364)).rename(columns={\"arriving_seats\": \"ly_seats\"})\n    f = f.merge(s, on=[\"airport_code\", \"week_start\"], how=\"left\").merge(s_ly, on=[\"airport_code\", \"week_start\"], how=\"left\")\n    f[\"seat_growth\"] = (f.arriving_seats / f.ly_seats - 1).fillna(0)\n    f[\"otb_occ\"] = f.otb_rooms / f.rooms_available\n    f[\"ly_occ\"] = (f.ly_rooms_sold / f.ly_rooms_available).replace([np.inf], np.nan)\n    f[\"pace_vs_ly\"] = (f.otb_rooms - f.ly_otb_rooms) / f.rooms_available\n    f[\"occ\"] = f.rooms_sold / f.rooms_available\n    f[\"delta_vs_ly\"] = f.occ - f.ly_occ\n    f[\"month\"], f[\"weekday\"] = f.date.dt.month, f.date.dt.weekday\n    f[\"concept_code\"] = f.concept.astype(\"category\").cat.codes\n    f[\"snapshot\"] = snap\n    return f\n\ntrain = frame(2026); train = train[(train.date <= AS_OF) & train.ly_occ.notna() & (train.ly_rooms_available > 0)].copy()\nscore = frame(2027); score = score[score.date <= \"2027-09-30\"].copy()\nscore[\"ly_occ\"] = score.ly_occ.fillna(score.groupby(\"hotel_id\").ly_occ.transform(\"mean\")).fillna(score.otb_occ)\n\ndef smooth(df_):\n    df_ = df_.sort_values([\"hotel_id\", \"date\"]).reset_index(drop=True)\n    for c in [\"pace_vs_ly\", \"seat_growth\"]:\n        df_[c + \"_28d\"] = df_.groupby(\"hotel_id\")[c].transform(lambda x: x.rolling(28, min_periods=1, center=True).mean())\n    df_[\"headroom\"] = 1 - df_[\"ly_occ\"]\n    return df_\n\ntrain, score = smooth(train), smooth(score)\nFEATURES = [\"seat_growth_28d\", \"pace_vs_ly_28d\", \"headroom\"]\nMONOTONIC = [1, 1, 0]   # more seats / stronger pace can only push the forecast up\nTARGET = \"delta_vs_ly\"\nprint(\"training rows:\", len(train), \" scoring rows:\", len(score))"
+   },
+   {
+    "kind": "code",
+    "src": "mlflow.set_experiment(\"kyanos-occupancy-forecast\")\nparams = dict(max_iter=300, learning_rate=0.04, max_leaf_nodes=15, min_samples_leaf=60, l2_regularization=1.0)\nmask = np.random.default_rng(7).random(len(train)) < 0.8\nwith mlflow.start_run(run_name=\"pace-model-summer-2027\") as run:\n    model = HistGradientBoostingRegressor(**params, monotonic_cst=MONOTONIC, random_state=7)\n    model.fit(train.loc[mask, FEATURES], train.loc[mask, TARGET])\n    pred = np.clip(train.loc[~mask, \"ly_occ\"] + model.predict(train.loc[~mask, FEATURES]), 0, 1)\n    mae = mean_absolute_error(train.loc[~mask, \"occ\"], pred)\n    base = mean_absolute_error(train.loc[~mask, \"occ\"], train.loc[~mask, \"ly_occ\"])\n    mlflow.log_params({**params, \"features\": \",\".join(FEATURES), \"target\": TARGET, \"snapshot\": str(AS_OF.date())})\n    mlflow.log_metric(\"mae_occupancy_pts\", round(mae * 100, 2))\n    mlflow.log_metric(\"naive_same_as_last_year_mae_pts\", round(base * 100, 2))\n    model.fit(train[FEATURES], train[TARGET])\n    mlflow.sklearn.log_model(model, \"model\", registered_model_name=\"kyanos-occupancy-forecast\", input_example=train[FEATURES].head(5))\nprint(f\"Holdout MAE {mae*100:.1f} occupancy points vs. naive 'same as last year' {base*100:.1f}\")"
+   },
+   {
+    "kind": "code",
+    "src": "score[\"forecast_occ\"] = np.clip(score.ly_occ + model.predict(score[FEATURES]), score.otb_occ, 0.995)\nscore[\"forecast_rooms_sold\"] = (score.forecast_occ * score.rooms_available).round(0)\nadr_ly = (score.ly_room_revenue / score.ly_rooms_sold).replace([np.inf, -np.inf], np.nan)\nscore[\"forecast_room_revenue\"] = (score.forecast_rooms_sold * adr_ly.fillna(adr_ly.mean()) * 1.04).round(2)\ncols = [\"hotel_id\", \"date\", \"rooms_available\", \"otb_rooms\", \"ly_otb_rooms\", \"forecast_rooms_sold\", \"forecast_room_revenue\",\n        \"ly_rooms_sold\", \"ly_room_revenue\", \"seat_growth\", \"pace_vs_ly\", \"otb_occ\", \"forecast_occ\", \"ly_occ\"]\nout = score[cols].copy()\nfor c in cols[2:]:\n    out[c] = out[c].astype(\"float64\")\nout[\"hotel_id\"] = out.hotel_id.astype(\"int32\")\nout[\"date\"] = out.date.dt.date\nout[\"model_run_id\"] = run.info.run_id\nout[\"snapshot_date\"] = AS_OF.date()\nsdf = spark.createDataFrame(out)\nsdf.write.mode(\"overwrite\").option(\"overwriteSchema\", \"true\").saveAsTable(\"gold.fact_occupancy_forecast\")\ndisplay(spark.sql(\"\"\"SELECT h.hotel_name, ROUND(AVG(f.forecast_occ)*100,1) AS forecast_occ_pct, ROUND(AVG(f.ly_occ)*100,1) AS ly_occ_pct,\n                ROUND(AVG(f.seat_growth)*100,1) AS airline_seat_growth_pct\n               FROM gold.fact_occupancy_forecast f JOIN gold.dim_hotel h USING (hotel_id) GROUP BY h.hotel_name ORDER BY AVG(f.forecast_occ) - AVG(f.ly_occ) DESC\"\"\"))"
+   }
+  ],
+  "04_Fabric_IQ_Ontology_Entities": [
+   {
+    "kind": "md",
+    "src": "# 04 \u00b7 Fabric IQ \u2013 ontology entities\nBusiness-friendly entity tables for the **Kyanos ontology** (Fabric IQ): hotels, airports, VIP guests (Gold/Platinum Privilege Club),\ntheir upcoming stays, open guest cases and tour operators. The ontology turns tables into connected business concepts that\nagents and people can navigate \u2013 e.g. *\"which Platinum guests arrive this month at a hotel with open air-conditioning cases?\"*"
+   },
+   {
+    "kind": "code",
+    "src": "from pyspark.sql import functions as F\nAS_OF = \"2026-10-06\"\nh, d, g = spark.table(\"gold.dim_hotel\"), spark.table(\"gold.fact_hotel_day\"), spark.table(\"gold.dim_guest\")\nr, c, a, s = spark.table(\"gold.fact_reservation\"), spark.table(\"gold.fact_guest_case\"), spark.table(\"gold.dim_airport\"), spark.table(\"gold.fact_airport_seats\")\ndef save(df, name):\n    df.write.mode(\"overwrite\").option(\"overwriteSchema\", \"true\").saveAsTable(f\"gold.{name}\")\n    print(f\"gold.{name:22s} {spark.table('gold.' + name).count():>7,} rows\")\n\nytd = lambda y: (F.year(\"date\") == y) & (F.month(\"date\") <= 9)\nk26 = d.where(ytd(2026)).groupBy(\"hotel_id\").agg((F.sum(\"room_revenue\") / F.sum(\"rooms_available\")).alias(\"revpar_2026\"), (F.sum(\"rooms_sold\") / F.sum(\"rooms_available\")).alias(\"occupancy_2026\"))\nk25 = d.where(ytd(2025)).groupBy(\"hotel_id\").agg((F.sum(\"room_revenue\") / F.sum(\"rooms_available\")).alias(\"revpar_2025\"))\ncs = c.groupBy(\"hotel_id\").agg(F.round(F.avg(\"csat_score\"), 2).alias(\"avg_case_csat\"), F.sum(F.when(F.col(\"status\") == \"Open\", 1).otherwise(0)).alias(\"open_cases\"))\nsave(h.join(k26, \"hotel_id\").join(k25, \"hotel_id\").join(cs, \"hotel_id\", \"left\").select(\n    F.col(\"hotel_id\").cast(\"long\"), \"hotel_code\", \"hotel_name\", \"destination\", \"region\", \"concept\", F.col(\"stars\").cast(\"long\"), F.col(\"rooms\").cast(\"long\"),\n    \"airport_code\", \"general_manager\", F.round(\"occupancy_2026\", 4).alias(\"occupancy_2026\"), F.round(\"revpar_2026\", 2).alias(\"revpar_2026\"),\n    F.round(F.col(\"revpar_2026\") / F.col(\"revpar_2025\") - 1, 4).alias(\"revpar_vs_ly\"), F.col(\"avg_case_csat\").cast(\"double\"), F.col(\"open_cases\").cast(\"long\")), \"iq_hotel\")\n\nsy = s.groupBy(\"airport_code\").agg(*[F.sum(F.when(F.col(\"season_year\") == y, F.col(\"arriving_seats\"))).alias(f\"s{y}\") for y in (2025, 2026, 2027)])\nsave(a.join(sy, \"airport_code\").select(\"airport_code\", \"airport_name\", \"airport_region\",\n     F.round(F.col(\"s2026\") / F.col(\"s2025\") - 1, 4).alias(\"seat_growth_2026\"), F.round(F.col(\"s2027\") / F.col(\"s2026\") - 1, 4).alias(\"seat_growth_2027\")), \"iq_airport\")\n\nvip = g.where(F.col(\"loyalty_tier\").isin(\"Gold\", \"Platinum\"))\nup = (r.where(F.col(\"is_active\") & (F.col(\"arrival_date\") > F.lit(AS_OF)) & (F.col(\"arrival_date\") <= F.lit(\"2027-09-30\")))\n       .join(vip.select(\"guest_id\"), \"guest_id\"))\nsave(vip.join(up.select(\"guest_id\").distinct(), \"guest_id\").select(F.col(\"guest_id\").cast(\"long\"), \"guest_name\", \"country\", \"language\", \"loyalty_tier\", \"member_id\",\n     F.col(\"lifetime_nights\").cast(\"long\"), \"top_preference\"), \"iq_vip_guest\")\ntos = r.where(F.col(\"tour_operator\").isNotNull()).select(\"tour_operator\").distinct().withColumn(\"tour_operator_id\", F.upper(F.regexp_replace(\"tour_operator\", \"[^A-Za-z]\", \"\")).substr(1, 8))\nsave(up.join(tos, \"tour_operator\", \"left\").select(F.col(\"reservation_id\").cast(\"long\"), \"confirmation_no\", F.col(\"hotel_id\").cast(\"long\"), F.col(\"guest_id\").cast(\"long\"),\n     F.date_format(\"arrival_date\", \"yyyy-MM-dd\").alias(\"arrival_date\"), F.col(\"nights\").cast(\"long\"), \"room_type\", \"channel\", \"board_type\",\n     F.round(\"room_revenue\", 2).alias(\"room_revenue\"), \"tour_operator_id\"), \"iq_upcoming_stay\")\n\nMARKET = {\"SunVoyage Holidays\": \"United Kingdom\", \"Nordic Breeze Travel\": \"Sweden\", \"Alpenreisen Touristik\": \"Germany\", \"Mare Viaggi\": \"Italy\",\n          \"Albion Sun Tours\": \"United Kingdom\", \"Benelux Zon Reizen\": \"Netherlands\"}\ntn = r.where(F.col(\"tour_operator\").isNotNull() & F.col(\"is_active\")).groupBy(\"tour_operator\").agg(\n    F.sum(F.when(F.year(\"arrival_date\") == 2026, F.col(\"nights\"))).alias(\"room_nights_2026\"),\n    F.sum(F.when(F.year(\"arrival_date\") == 2027, F.col(\"nights\"))).alias(\"otb_room_nights_2027\"))\nmk = spark.createDataFrame(list(MARKET.items()), \"tour_operator string, home_market string\")\nsave(tos.join(tn, \"tour_operator\").join(mk, \"tour_operator\", \"left\").select(\"tour_operator_id\", F.col(\"tour_operator\").alias(\"tour_operator_name\"), \"home_market\",\n     F.col(\"room_nights_2026\").cast(\"long\"), F.col(\"otb_room_nights_2027\").cast(\"long\")), \"iq_tour_operator\")\n\nguest_of = r.select(\"confirmation_no\", F.col(\"guest_id\").alias(\"res_guest_id\"))\nsave(c.where(F.col(\"status\") == \"Open\").join(guest_of, \"confirmation_no\", \"left\").select(\"case_id\", F.col(\"hotel_id\").cast(\"long\"),\n     F.date_format(\"created_date\", \"yyyy-MM-dd\").alias(\"created_date\"), \"category\", \"sub_category\", \"origin\", \"status\",\n     F.col(\"csat_score\").cast(\"long\"), F.col(\"res_guest_id\").cast(\"long\").alias(\"guest_id\")), \"iq_open_case\")"
+   }
+  ]
+ }
+}

@@ -1,0 +1,26 @@
+# local configuration and deployment state (tenant-specific)
+config.json
+config.*.json
+!config.example.json
+.state*.json
+
+# generated data
+data/
+
+# demo runtime
+.sim.pid
+sim.log
+sim.err.log
+*.log
+
+# private material (customer-specific run sheets etc.)
+docs/private/
+
+# documentation build intermediates
+docs/build/node_modules/
+docs/_facts.json
+
+# python
+__pycache__/
+*.pyc
+.venv/

@@ -1,0 +1,489 @@
+{
+ "queries": [
+  {
+   "title": "Season-to-date KPIs, 2026 vs 2025",
+   "purpose": "Headline KPIs for closed months (Jan\u2013Sep) per year; validates time intelligence and the GOP join to SAP costs.",
+   "dax": "EVALUATE\nSUMMARIZECOLUMNS (\n    dim_date[year],\n    TREATAS ( { TRUE () }, dim_date[is_closed_ytd] ),\n    TREATAS ( { 2025, 2026 }, dim_date[year] ),\n    \"Occupancy\", [Occupancy %],\n    \"ADR\", [ADR],\n    \"RevPAR\", [RevPAR],\n    \"RevPAR vs LY\", [RevPAR vs LY %],\n    \"Total Revenue\", [Total Revenue],\n    \"GOP Margin\", [GOP Margin %],\n    \"Direct Share\", [Direct Share %]\n)\nORDER BY dim_date[year]",
+   "result": [
+    {
+     "year": 2025,
+     "Occupancy": 0.8318093091760864,
+     "ADR": 300.02408134835355,
+     "RevPAR": 249.56282384256394,
+     "RevPAR vs LY": null,
+     "Total Revenue": 362577449.0100003,
+     "GOP Margin": 0.3949548213243964,
+     "Direct Share": 0.34492261348680237
+    },
+    {
+     "year": 2026,
+     "Occupancy": 0.843013681614111,
+     "ADR": 318.45191751207994,
+     "RevPAR": 268.4593233989317,
+     "RevPAR vs LY": 0.07571840735497062,
+     "Total Revenue": 384982837.6800006,
+     "GOP Margin": 0.4020285830992015,
+     "Direct Share": 0.38332177466011214
+    }
+   ]
+  },
+  {
+   "title": "Weakest hotels vs last year and airline seats",
+   "purpose": "Bottom three hotels by RevPAR growth with the seat change at their airport (TREATAS bridge dim_hotel \u2192 dim_airport).",
+   "dax": "EVALUATE\nTOPN (\n    3,\n    SUMMARIZECOLUMNS (\n        dim_hotel[hotel_name],\n        dim_hotel[airport_code],\n        TREATAS ( { 2026 }, dim_date[year] ),\n        TREATAS ( { TRUE () }, dim_date[is_closed_ytd] ),\n        \"RevPAR vs LY\", [RevPAR vs LY %],\n        \"Occupancy vs LY (pts)\", [Occupancy vs LY (pts)],\n        \"Airline Seat Growth\", [Airline Seat Growth %]\n    ),\n    [RevPAR vs LY], ASC\n)\nORDER BY [RevPAR vs LY] ASC",
+   "result": [
+    {
+     "hotel_name": "Kyanos Kos Psalidi Suites",
+     "airport_code": "KGS",
+     "RevPAR vs LY": -0.081454380921689,
+     "Occupancy vs LY (pts)": -0.06792682926829274,
+     "Airline Seat Growth": -0.12909650331459602
+    },
+    {
+     "hotel_name": "Kyanos Kos Marmari",
+     "airport_code": "KGS",
+     "RevPAR vs LY": -0.06832340632222274,
+     "Occupancy vs LY (pts)": -0.04893292682926831,
+     "Airline Seat Growth": -0.12909650331459602
+    },
+    {
+     "hotel_name": "Kyanos Zakynthos Laganas",
+     "airport_code": "ZTH",
+     "RevPAR vs LY": -0.061570702641119954,
+     "Occupancy vs LY (pts)": -0.041101055806938236,
+     "Airline Seat Growth": -0.10208280831572505
+    }
+   ]
+  },
+  {
+   "title": "Guest cases at Kyanos Kos Marmari (2026)",
+   "purpose": "Salesforce case mix for one hotel; surfaces the air-conditioning complaint cluster.",
+   "dax": "EVALUATE\nTOPN (\n    4,\n    SUMMARIZECOLUMNS (\n        fact_guest_case[sub_category],\n        TREATAS ( { \"Kyanos Kos Marmari\" }, dim_hotel[hotel_name] ),\n        TREATAS ( { 2026 }, dim_date[year] ),\n        \"Cases\", [Guest Cases],\n        \"Avg CSAT\", [Avg Case CSAT]\n    ),\n    [Cases], DESC\n)\nORDER BY [Cases] DESC",
+   "result": [
+    {
+     "sub_category": "Air conditioning",
+     "Cases": 157,
+     "Avg CSAT": 2.4585987261146496
+    },
+    {
+     "sub_category": "Compliment - staff",
+     "Cases": 39,
+     "Avg CSAT": 4.743589743589744
+    },
+    {
+     "sub_category": "Special request",
+     "Cases": 38,
+     "Avg CSAT": 4.131578947368421
+    },
+    {
+     "sub_category": "Food & beverage",
+     "Cases": 35,
+     "Avg CSAT": 2.6285714285714286
+    }
+   ]
+  },
+  {
+   "title": "Summer 2027 AI forecast \u2013 top movers",
+   "purpose": "Hotels with the largest forecast occupancy change vs 2026 and their drivers.",
+   "dax": "EVALUATE\nTOPN (\n    5,\n    SUMMARIZECOLUMNS (\n        dim_hotel[hotel_name],\n        \"Forecast Occ\", [Forecast Occupancy %],\n        \"2026 Occ\", [Last Year Occupancy %],\n        \"Change (pts)\", [Forecast vs LY (pts)],\n        \"Seat Growth\", [Seat Growth at Airport %],\n        \"Pace vs LY\", [Booking Pace vs LY (pts)]\n    ),\n    [Change (pts)], DESC\n)\nORDER BY [Change (pts)] DESC",
+   "result": [
+    {
+     "hotel_name": "Kyanos Olympia Riviera",
+     "Forecast Occ": 0.8677451826287029,
+     "2026 Occ": 0.8242306586137474,
+     "Change (pts)": 0.04351452401495548,
+     "Seat Growth": 0.15380016061529064,
+     "Pace vs LY": 0.012899050905953419
+    },
+    {
+     "hotel_name": "Kyanos Chania Kalyves",
+     "Forecast Occ": 0.8888560157790927,
+     "2026 Occ": 0.8511834319526628,
+     "Change (pts)": 0.037672583826429906,
+     "Seat Growth": 0.1208337576616102,
+     "Pace vs LY": 0.010256410256410262
+    },
+    {
+     "hotel_name": "Kyanos Thessaloniki Center",
+     "Forecast Occ": 0.8116198616198617,
+     "2026 Occ": 0.7777574277574277,
+     "Change (pts)": 0.03386243386243393,
+     "Seat Growth": 0.08917997771712528,
+     "Pace vs LY": 0.0013227513227513231
+    },
+    {
+     "hotel_name": "Kyanos Heraklion City",
+     "Forecast Occ": 0.8083562271062271,
+     "2026 Occ": 0.7779304029304029,
+     "Change (pts)": 0.03042582417582418,
+     "Seat Growth": 0.08034825548154663,
+     "Pace vs LY": -0.0001144688644688645
+    },
+    {
+     "hotel_name": "Kyanos Rethymno Mare",
+     "Forecast Occ": 0.8933000604960678,
+     "2026 Occ": 0.8655626134301271,
+     "Change (pts)": 0.027737447065940724,
+     "Seat Growth": 0.12208866968357325,
+     "Pace vs LY": 0.011781609195402304
+    }
+   ]
+  },
+  {
+   "title": "Group-level 2027 outlook",
+   "purpose": "Single-row summary of the forecast page cards.",
+   "dax": "EVALUATE\nROW (\n    \"Forecast Occ 2027\", [Forecast Occupancy %],\n    \"Actual Occ 2026\", [Last Year Occupancy %],\n    \"On the books\", [On-the-Books %],\n    \"Forecast Room Revenue\", [Forecast Room Revenue],\n    \"vs 2026\", [Forecast Room Revenue vs LY %]\n)",
+   "result": [
+    {
+     "Forecast Occ 2027": 0.8598193530069385,
+     "Actual Occ 2026": 0.8441440562170603,
+     "On the books": 0.07139903820559686,
+     "Forecast Room Revenue": 319509787.26,
+     "vs 2026": 0.05358539962272517
+    }
+   ]
+  },
+  {
+   "title": "Privilege Club tier mix (2026)",
+   "purpose": "Stays by Salesforce loyalty tier through dim_guest.",
+   "dax": "EVALUATE\nSUMMARIZECOLUMNS (\n    dim_guest[loyalty_tier],\n    TREATAS ( { 2026 }, dim_date[year] ),\n    TREATAS ( { TRUE () }, dim_date[is_closed_ytd] ),\n    \"Stays\", [Bookings]\n)\nORDER BY [Stays] DESC",
+   "result": [
+    {
+     "loyalty_tier": "Non-member",
+     "Stays": 126041
+    },
+    {
+     "loyalty_tier": "Silver",
+     "Stays": 20501
+    },
+    {
+     "loyalty_tier": "Gold",
+     "Stays": 15463
+    },
+    {
+     "loyalty_tier": "Blue",
+     "Stays": 9649
+    },
+    {
+     "loyalty_tier": "Platinum",
+     "Stays": 5797
+    }
+   ]
+  },
+  {
+   "title": "GOP margin by hotel concept (2026 vs 2025)",
+   "purpose": "Profitability by concept combining PMS revenue and SAP costs.",
+   "dax": "EVALUATE\nSUMMARIZECOLUMNS (\n    dim_hotel[concept],\n    TREATAS ( { 2026 }, dim_date[year] ),\n    TREATAS ( { TRUE () }, dim_date[is_closed_ytd] ),\n    \"GOP Margin\", [GOP Margin %],\n    \"GOP Margin LY\", [GOP Margin % LY],\n    \"GOPPAR\", [GOPPAR]\n)\nORDER BY [GOP Margin] DESC",
+   "result": [
+    {
+     "concept": "Adults-Only Resort",
+     "GOP Margin": 0.5680176816678562,
+     "GOP Margin LY": 0.5576749862062074,
+     "GOPPAR": 346.70413475622513
+    },
+    {
+     "concept": "Luxury Resort",
+     "GOP Margin": 0.4882169158633682,
+     "GOP Margin LY": 0.47976376914583607,
+     "GOPPAR": 224.0007908501777
+    },
+    {
+     "concept": "Family Resort",
+     "GOP Margin": 0.3506187091122425,
+     "GOP Margin LY": 0.33777197266467146,
+     "GOPPAR": 107.53226271496496
+    },
+    {
+     "concept": "All-Inclusive Resort",
+     "GOP Margin": 0.24542344601284363,
+     "GOP Margin LY": 0.2539943138612344,
+     "GOPPAR": 59.32504967888847
+    },
+    {
+     "concept": "City Hotel",
+     "GOP Margin": 0.2333147680838771,
+     "GOP Margin LY": 0.2259916725369951,
+     "GOPPAR": 47.896683916083965
+    }
+   ]
+  },
+  {
+   "title": "Live PMS \u2013 last 24 hours by hotel",
+   "purpose": "Rolling 24-hour window over the mirrored PMS table (Direct Lake, no refresh needed).",
+   "dax": "EVALUATE\nTOPN (\n    5,\n    SUMMARIZECOLUMNS (\n        dim_hotel[hotel_short_name],\n        \"Bookings 24h\", [Bookings Last 24h (live)],\n        \"Revenue 24h\", [Booked Revenue Last 24h (live)]\n    ),\n    [Bookings 24h], DESC\n)\nORDER BY [Bookings 24h] DESC",
+   "result": [
+    {
+     "hotel_short_name": "Athens Acropolis",
+     "Bookings 24h": 94,
+     "Revenue 24h": 52671.39
+    },
+    {
+     "hotel_short_name": "Heraklion City",
+     "Bookings 24h": 64,
+     "Revenue 24h": 19718.92
+    },
+    {
+     "hotel_short_name": "Thessaloniki Center",
+     "Bookings 24h": 54,
+     "Revenue 24h": 14224.49
+    },
+    {
+     "hotel_short_name": "Malia Riviera",
+     "Bookings 24h": 31,
+     "Revenue 24h": 52345.6
+    },
+    {
+     "hotel_short_name": "Olympia Riviera",
+     "Bookings 24h": 21,
+     "Revenue 24h": 68618.86
+    },
+    {
+     "hotel_short_name": "Faliraki Family",
+     "Bookings 24h": 21,
+     "Revenue 24h": 35156.06
+    }
+   ]
+  }
+ ],
+ "forecast_metrics": {
+  "train_rows": 4534,
+  "score_rows": 4390,
+  "mae_pts": 3.31,
+  "naive_mae_pts": 4.09,
+  "features": [
+   "seat_growth_28d",
+   "pace_vs_ly_28d",
+   "headroom"
+  ],
+  "monotonic": [
+   1,
+   1,
+   0
+  ],
+  "params": {
+   "max_iter": 300,
+   "learning_rate": 0.04,
+   "max_leaf_nodes": 15,
+   "min_samples_leaf": 60,
+   "l2_regularization": 1.0
+  }
+ },
+ "forecast_by_hotel": [
+  [
+   "Kyanos Olympia Riviera",
+   "GPA",
+   "86.8",
+   "82.4",
+   "15.4",
+   "1.3",
+   "4.4"
+  ],
+  [
+   "Kyanos Chania Kalyves",
+   "CHQ",
+   "88.9",
+   "85.1",
+   "12.1",
+   "1.0",
+   "3.8"
+  ],
+  [
+   "Kyanos Thessaloniki Center",
+   "SKG",
+   "81.2",
+   "77.8",
+   "8.9",
+   "0.1",
+   "3.4"
+  ],
+  [
+   "Kyanos Heraklion City",
+   "HER",
+   "80.9",
+   "77.8",
+   "8.0",
+   "0.0",
+   "3.1"
+  ],
+  [
+   "Kyanos Rethymno Mare",
+   "CHQ",
+   "89.3",
+   "86.6",
+   "12.2",
+   "1.2",
+   "2.7"
+  ],
+  [
+   "Kyanos Messinia Bay",
+   "KLX",
+   "88.6",
+   "86.1",
+   "10.6",
+   "0.9",
+   "2.5"
+  ],
+  [
+   "Kyanos Athens Acropolis",
+   "ATH",
+   "81.6",
+   "79.2",
+   "5.3",
+   "0.0",
+   "2.4"
+  ],
+  [
+   "Kyanos Kavos Lagoon",
+   "CFU",
+   "89.2",
+   "87.3",
+   "6.4",
+   "-0.1",
+   "1.9"
+  ],
+  [
+   "Kyanos Paleokastritsa",
+   "CFU",
+   "89.1",
+   "87.2",
+   "6.3",
+   "0.9",
+   "1.9"
+  ],
+  [
+   "Kyanos Agios Nikolaos Bay",
+   "HER",
+   "87.0",
+   "85.1",
+   "7.7",
+   "1.3",
+   "1.9"
+  ],
+  [
+   "Kyanos Kassandra Palace",
+   "SKG",
+   "93.0",
+   "91.4",
+   "9.3",
+   "0.9",
+   "1.6"
+  ],
+  [
+   "Kyanos Elounda Palace",
+   "HER",
+   "86.8",
+   "85.4",
+   "7.8",
+   "0.6",
+   "1.4"
+  ],
+  [
+   "Kyanos Sithonia Beach",
+   "SKG",
+   "91.6",
+   "90.3",
+   "9.3",
+   "-0.1",
+   "1.3"
+  ],
+  [
+   "Kyanos Corfu Dassia",
+   "CFU",
+   "90.0",
+   "89.0",
+   "6.3",
+   "0.3",
+   "1.0"
+  ],
+  [
+   "Kyanos Malia Riviera",
+   "HER",
+   "88.3",
+   "87.4",
+   "7.9",
+   "-0.1",
+   "0.9"
+  ],
+  [
+   "Kyanos Vouliagmeni Riviera",
+   "ATH",
+   "82.9",
+   "82.2",
+   "5.3",
+   "1.2",
+   "0.7"
+  ],
+  [
+   "Kyanos Kos Marmari",
+   "KGS",
+   "77.9",
+   "77.6",
+   "-3.0",
+   "-0.6",
+   "0.3"
+  ],
+  [
+   "Kyanos Kos Psalidi Suites",
+   "KGS",
+   "78.5",
+   "78.2",
+   "-3.0",
+   "-0.4",
+   "0.3"
+  ],
+  [
+   "Kyanos Faliraki Family",
+   "RHO",
+   "86.6",
+   "86.3",
+   "2.0",
+   "-0.0",
+   "0.3"
+  ],
+  [
+   "Kyanos Zakynthos Laganas",
+   "ZTH",
+   "79.8",
+   "79.5",
+   "-2.2",
+   "0.0",
+   "0.3"
+  ],
+  [
+   "Kyanos Rhodes Ixia Grand",
+   "RHO",
+   "84.2",
+   "84.2",
+   "2.2",
+   "0.0",
+   "0.0"
+  ],
+  [
+   "Kyanos Lindos Blue",
+   "RHO",
+   "87.7",
+   "87.8",
+   "2.0",
+   "1.0",
+   "-0.1"
+  ],
+  [
+   "Kyanos Santorini Caldera",
+   "JTR",
+   "85.4",
+   "86.1",
+   "0.3",
+   "1.1",
+   "-0.7"
+  ],
+  [
+   "Kyanos Mykonos Ornos",
+   "JMK",
+   "88.9",
+   "90.4",
+   "0.1",
+   "1.5",
+   "-1.5"
+  ]
+ ]
+}

@@ -1,0 +1,1259 @@
+{
+ "tables": {
+  "crm.guest_case": {
+   "rows": 17379,
+   "columns": [
+    [
+     "case_id",
+     "varchar"
+    ],
+    [
+     "confirmation_no",
+     "varchar"
+    ],
+    [
+     "hotel_code",
+     "varchar"
+    ],
+    [
+     "created_date",
+     "date"
+    ],
+    [
+     "category",
+     "varchar"
+    ],
+    [
+     "sub_category",
+     "varchar"
+    ],
+    [
+     "origin",
+     "varchar"
+    ],
+    [
+     "status",
+     "varchar"
+    ],
+    [
+     "csat_score",
+     "int"
+    ],
+    [
+     "_ingested_at",
+     "datetime2"
+    ],
+    [
+     "_source_file",
+     "varchar"
+    ]
+   ]
+  },
+  "crm.privilege_club_member": {
+   "rows": 43250,
+   "columns": [
+    [
+     "member_id",
+     "varchar"
+    ],
+    [
+     "email",
+     "varchar"
+    ],
+    [
+     "first_name",
+     "varchar"
+    ],
+    [
+     "last_name",
+     "varchar"
+    ],
+    [
+     "country_code",
+     "varchar"
+    ],
+    [
+     "tier",
+     "varchar"
+    ],
+    [
+     "join_date",
+     "date"
+    ],
+    [
+     "lifetime_nights",
+     "int"
+    ],
+    [
+     "lifetime_room_revenue",
+     "float"
+    ],
+    [
+     "preferred_language",
+     "varchar"
+    ],
+    [
+     "marketing_opt_in",
+     "bit"
+    ],
+    [
+     "top_preference",
+     "varchar"
+    ],
+    [
+     "sf_account_id",
+     "varchar"
+    ],
+    [
+     "_ingested_at",
+     "datetime2"
+    ],
+    [
+     "_source_file",
+     "varchar"
+    ]
+   ]
+  },
+  "erp.hotel_cost_monthly": {
+   "rows": 2148,
+   "columns": [
+    [
+     "company_code",
+     "varchar"
+    ],
+    [
+     "plant",
+     "varchar"
+    ],
+    [
+     "fiscal_period",
+     "datetime2"
+    ],
+    [
+     "posting_month",
+     "date"
+    ],
+    [
+     "gl_account",
+     "varchar"
+    ],
+    [
+     "cost_category",
+     "varchar"
+    ],
+    [
+     "amount_eur",
+     "decimal"
+    ],
+    [
+     "_ingested_at",
+     "datetime2"
+    ],
+    [
+     "_source_file",
+     "varchar"
+    ]
+   ]
+  },
+  "ext.airport_seat_capacity": {
+   "rows": 1884,
+   "columns": [
+    [
+     "airport_code",
+     "varchar"
+    ],
+    [
+     "week_start",
+     "date"
+    ],
+    [
+     "scheduled_arriving_seats",
+     "int"
+    ],
+    [
+     "scheduled_flights",
+     "int"
+    ],
+    [
+     "season_year",
+     "int"
+    ],
+    [
+     "data_status",
+     "varchar"
+    ],
+    [
+     "_ingested_at",
+     "datetime2"
+    ],
+    [
+     "_source_file",
+     "varchar"
+    ]
+   ]
+  },
+  "gold.dim_airport": {
+   "rows": 12,
+   "columns": [
+    [
+     "airport_code",
+     "varchar"
+    ],
+    [
+     "airport_name",
+     "varchar"
+    ],
+    [
+     "airport_region",
+     "varchar"
+    ]
+   ]
+  },
+  "gold.dim_date": {
+   "rows": 1095,
+   "columns": [
+    [
+     "date",
+     "date"
+    ],
+    [
+     "year",
+     "int"
+    ],
+    [
+     "quarter",
+     "varchar"
+    ],
+    [
+     "month_num",
+     "int"
+    ],
+    [
+     "month",
+     "varchar"
+    ],
+    [
+     "year_month",
+     "varchar"
+    ],
+    [
+     "month_start",
+     "date"
+    ],
+    [
+     "week_start",
+     "date"
+    ],
+    [
+     "weekday_num",
+     "int"
+    ],
+    [
+     "weekday",
+     "varchar"
+    ],
+    [
+     "season",
+     "varchar"
+    ],
+    [
+     "is_actual",
+     "bit"
+    ],
+    [
+     "is_closed_ytd",
+     "bit"
+    ]
+   ]
+  },
+  "gold.dim_guest": {
+   "rows": 255848,
+   "columns": [
+    [
+     "guest_id",
+     "int"
+    ],
+    [
+     "guest_name",
+     "varchar"
+    ],
+    [
+     "email",
+     "varchar"
+    ],
+    [
+     "country_code",
+     "varchar"
+    ],
+    [
+     "country",
+     "varchar"
+    ],
+    [
+     "language",
+     "varchar"
+    ],
+    [
+     "member_id",
+     "varchar"
+    ],
+    [
+     "is_member",
+     "bit"
+    ],
+    [
+     "loyalty_tier",
+     "varchar"
+    ],
+    [
+     "marketing_opt_in",
+     "bit"
+    ],
+    [
+     "top_preference",
+     "varchar"
+    ],
+    [
+     "lifetime_nights",
+     "int"
+    ]
+   ]
+  },
+  "gold.dim_hotel": {
+   "rows": 24,
+   "columns": [
+    [
+     "hotel_id",
+     "int"
+    ],
+    [
+     "hotel_code",
+     "varchar"
+    ],
+    [
+     "hotel_name",
+     "varchar"
+    ],
+    [
+     "hotel_short_name",
+     "varchar"
+    ],
+    [
+     "destination",
+     "varchar"
+    ],
+    [
+     "region",
+     "varchar"
+    ],
+    [
+     "airport_code",
+     "varchar"
+    ],
+    [
+     "stars",
+     "int"
+    ],
+    [
+     "concept",
+     "varchar"
+    ],
+    [
+     "rooms",
+     "int"
+    ],
+    [
+     "latitude",
+     "float"
+    ],
+    [
+     "longitude",
+     "float"
+    ],
+    [
+     "operating_model",
+     "varchar"
+    ],
+    [
+     "general_manager",
+     "varchar"
+    ],
+    [
+     "gm_email",
+     "varchar"
+    ]
+   ]
+  },
+  "gold.fact_airport_seats": {
+   "rows": 1872,
+   "columns": [
+    [
+     "airport_code",
+     "varchar"
+    ],
+    [
+     "week_start",
+     "date"
+    ],
+    [
+     "arriving_seats",
+     "int"
+    ],
+    [
+     "flights",
+     "int"
+    ],
+    [
+     "season_year",
+     "int"
+    ],
+    [
+     "data_status",
+     "varchar"
+    ]
+   ]
+  },
+  "gold.fact_guest_case": {
+   "rows": 17379,
+   "columns": [
+    [
+     "case_id",
+     "varchar"
+    ],
+    [
+     "confirmation_no",
+     "varchar"
+    ],
+    [
+     "hotel_id",
+     "int"
+    ],
+    [
+     "created_date",
+     "date"
+    ],
+    [
+     "category",
+     "varchar"
+    ],
+    [
+     "sub_category",
+     "varchar"
+    ],
+    [
+     "origin",
+     "varchar"
+    ],
+    [
+     "status",
+     "varchar"
+    ],
+    [
+     "csat_score",
+     "int"
+    ]
+   ]
+  },
+  "gold.fact_hotel_cost": {
+   "rows": 2148,
+   "columns": [
+    [
+     "hotel_id",
+     "int"
+    ],
+    [
+     "month_start",
+     "date"
+    ],
+    [
+     "cost_category",
+     "varchar"
+    ],
+    [
+     "gl_account",
+     "varchar"
+    ],
+    [
+     "amount_eur",
+     "float"
+    ]
+   ]
+  },
+  "gold.fact_hotel_day": {
+   "rows": 26280,
+   "columns": [
+    [
+     "hotel_id",
+     "int"
+    ],
+    [
+     "date",
+     "date"
+    ],
+    [
+     "rooms_available",
+     "int"
+    ],
+    [
+     "rooms_sold",
+     "bigint"
+    ],
+    [
+     "room_revenue",
+     "float"
+    ],
+    [
+     "extras_revenue",
+     "float"
+    ],
+    [
+     "arrivals",
+     "bigint"
+    ],
+    [
+     "is_actual",
+     "bit"
+    ],
+    [
+     "total_revenue",
+     "float"
+    ]
+   ]
+  },
+  "gold.fact_occupancy_forecast": {
+   "rows": 4390,
+   "columns": [
+    [
+     "hotel_id",
+     "int"
+    ],
+    [
+     "date",
+     "date"
+    ],
+    [
+     "rooms_available",
+     "float"
+    ],
+    [
+     "otb_rooms",
+     "float"
+    ],
+    [
+     "ly_otb_rooms",
+     "float"
+    ],
+    [
+     "forecast_rooms_sold",
+     "float"
+    ],
+    [
+     "forecast_room_revenue",
+     "float"
+    ],
+    [
+     "ly_rooms_sold",
+     "float"
+    ],
+    [
+     "ly_room_revenue",
+     "float"
+    ],
+    [
+     "seat_growth",
+     "float"
+    ],
+    [
+     "pace_vs_ly",
+     "float"
+    ],
+    [
+     "otb_occ",
+     "float"
+    ],
+    [
+     "forecast_occ",
+     "float"
+    ],
+    [
+     "ly_occ",
+     "float"
+    ],
+    [
+     "model_run_id",
+     "varchar"
+    ],
+    [
+     "snapshot_date",
+     "date"
+    ]
+   ]
+  },
+  "gold.fact_reservation": {
+   "rows": 482961,
+   "columns": [
+    [
+     "reservation_id",
+     "bigint"
+    ],
+    [
+     "confirmation_no",
+     "varchar"
+    ],
+    [
+     "hotel_id",
+     "int"
+    ],
+    [
+     "guest_id",
+     "int"
+    ],
+    [
+     "room_type",
+     "varchar"
+    ],
+    [
+     "booking_date",
+     "date"
+    ],
+    [
+     "arrival_date",
+     "date"
+    ],
+    [
+     "departure_date",
+     "date"
+    ],
+    [
+     "nights",
+     "int"
+    ],
+    [
+     "lead_time_days",
+     "int"
+    ],
+    [
+     "channel",
+     "varchar"
+    ],
+    [
+     "channel_group",
+     "varchar"
+    ],
+    [
+     "market_segment",
+     "varchar"
+    ],
+    [
+     "tour_operator",
+     "varchar"
+    ],
+    [
+     "board_type",
+     "varchar"
+    ],
+    [
+     "adults",
+     "int"
+    ],
+    [
+     "children",
+     "int"
+    ],
+    [
+     "status",
+     "varchar"
+    ],
+    [
+     "is_cancelled",
+     "bit"
+    ],
+    [
+     "is_active",
+     "bit"
+    ],
+    [
+     "rate_amount",
+     "float"
+    ],
+    [
+     "room_revenue",
+     "float"
+    ],
+    [
+     "extras_revenue",
+     "float"
+    ],
+    [
+     "cancel_date",
+     "date"
+    ],
+    [
+     "created_at",
+     "datetime2"
+    ]
+   ]
+  },
+  "gold.iq_airport": {
+   "rows": 12,
+   "columns": [
+    [
+     "airport_code",
+     "varchar"
+    ],
+    [
+     "airport_name",
+     "varchar"
+    ],
+    [
+     "airport_region",
+     "varchar"
+    ],
+    [
+     "seat_growth_2026",
+     "float"
+    ],
+    [
+     "seat_growth_2027",
+     "float"
+    ]
+   ]
+  },
+  "gold.iq_hotel": {
+   "rows": 24,
+   "columns": [
+    [
+     "hotel_id",
+     "bigint"
+    ],
+    [
+     "hotel_code",
+     "varchar"
+    ],
+    [
+     "hotel_name",
+     "varchar"
+    ],
+    [
+     "destination",
+     "varchar"
+    ],
+    [
+     "region",
+     "varchar"
+    ],
+    [
+     "concept",
+     "varchar"
+    ],
+    [
+     "stars",
+     "bigint"
+    ],
+    [
+     "rooms",
+     "bigint"
+    ],
+    [
+     "airport_code",
+     "varchar"
+    ],
+    [
+     "general_manager",
+     "varchar"
+    ],
+    [
+     "occupancy_2026",
+     "float"
+    ],
+    [
+     "revpar_2026",
+     "float"
+    ],
+    [
+     "revpar_vs_ly",
+     "float"
+    ],
+    [
+     "avg_case_csat",
+     "float"
+    ],
+    [
+     "open_cases",
+     "bigint"
+    ]
+   ]
+  },
+  "gold.iq_open_case": {
+   "rows": 124,
+   "columns": [
+    [
+     "case_id",
+     "varchar"
+    ],
+    [
+     "hotel_id",
+     "bigint"
+    ],
+    [
+     "created_date",
+     "varchar"
+    ],
+    [
+     "category",
+     "varchar"
+    ],
+    [
+     "sub_category",
+     "varchar"
+    ],
+    [
+     "origin",
+     "varchar"
+    ],
+    [
+     "status",
+     "varchar"
+    ],
+    [
+     "csat_score",
+     "bigint"
+    ],
+    [
+     "guest_id",
+     "bigint"
+    ]
+   ]
+  },
+  "gold.iq_tour_operator": {
+   "rows": 6,
+   "columns": [
+    [
+     "tour_operator_id",
+     "varchar"
+    ],
+    [
+     "tour_operator_name",
+     "varchar"
+    ],
+    [
+     "home_market",
+     "varchar"
+    ],
+    [
+     "room_nights_2026",
+     "bigint"
+    ],
+    [
+     "otb_room_nights_2027",
+     "bigint"
+    ]
+   ]
+  },
+  "gold.iq_upcoming_stay": {
+   "rows": 3600,
+   "columns": [
+    [
+     "reservation_id",
+     "bigint"
+    ],
+    [
+     "confirmation_no",
+     "varchar"
+    ],
+    [
+     "hotel_id",
+     "bigint"
+    ],
+    [
+     "guest_id",
+     "bigint"
+    ],
+    [
+     "arrival_date",
+     "varchar"
+    ],
+    [
+     "nights",
+     "bigint"
+    ],
+    [
+     "room_type",
+     "varchar"
+    ],
+    [
+     "channel",
+     "varchar"
+    ],
+    [
+     "board_type",
+     "varchar"
+    ],
+    [
+     "room_revenue",
+     "float"
+    ],
+    [
+     "tour_operator_id",
+     "varchar"
+    ]
+   ]
+  },
+  "gold.iq_vip_guest": {
+   "rows": 2943,
+   "columns": [
+    [
+     "guest_id",
+     "bigint"
+    ],
+    [
+     "guest_name",
+     "varchar"
+    ],
+    [
+     "country",
+     "varchar"
+    ],
+    [
+     "language",
+     "varchar"
+    ],
+    [
+     "loyalty_tier",
+     "varchar"
+    ],
+    [
+     "member_id",
+     "varchar"
+    ],
+    [
+     "lifetime_nights",
+     "bigint"
+    ],
+    [
+     "top_preference",
+     "varchar"
+    ]
+   ]
+  },
+  "pms.Guest": {
+   "rows": 255848,
+   "columns": [
+    [
+     "GuestId",
+     "int"
+    ],
+    [
+     "FirstName",
+     "varchar"
+    ],
+    [
+     "LastName",
+     "varchar"
+    ],
+    [
+     "Email",
+     "varchar"
+    ],
+    [
+     "Country",
+     "varchar"
+    ],
+    [
+     "CountryName",
+     "varchar"
+    ],
+    [
+     "Language",
+     "varchar"
+    ],
+    [
+     "LoyaltyNumber",
+     "varchar"
+    ],
+    [
+     "CreatedAt",
+     "datetime2"
+    ]
+   ]
+  },
+  "pms.Hotel": {
+   "rows": 24,
+   "columns": [
+    [
+     "HotelId",
+     "int"
+    ],
+    [
+     "HotelCode",
+     "varchar"
+    ],
+    [
+     "HotelName",
+     "varchar"
+    ],
+    [
+     "Destination",
+     "varchar"
+    ],
+    [
+     "Region",
+     "varchar"
+    ],
+    [
+     "Airport",
+     "varchar"
+    ],
+    [
+     "Stars",
+     "smallint"
+    ],
+    [
+     "Concept",
+     "varchar"
+    ],
+    [
+     "Rooms",
+     "int"
+    ],
+    [
+     "Latitude",
+     "decimal"
+    ],
+    [
+     "Longitude",
+     "decimal"
+    ],
+    [
+     "OpenMMDD",
+     "varchar"
+    ],
+    [
+     "CloseMMDD",
+     "varchar"
+    ],
+    [
+     "IsSeasonal",
+     "bit"
+    ],
+    [
+     "GeneralManager",
+     "varchar"
+    ],
+    [
+     "GMEmail",
+     "varchar"
+    ]
+   ]
+  },
+  "pms.Reservation": {
+   "rows": 484782,
+   "columns": [
+    [
+     "ReservationId",
+     "bigint"
+    ],
+    [
+     "ConfirmationNo",
+     "varchar"
+    ],
+    [
+     "HotelId",
+     "int"
+    ],
+    [
+     "RoomTypeId",
+     "int"
+    ],
+    [
+     "GuestId",
+     "int"
+    ],
+    [
+     "BookingDate",
+     "date"
+    ],
+    [
+     "ArrivalDate",
+     "date"
+    ],
+    [
+     "DepartureDate",
+     "date"
+    ],
+    [
+     "Nights",
+     "int"
+    ],
+    [
+     "Adults",
+     "smallint"
+    ],
+    [
+     "Children",
+     "smallint"
+    ],
+    [
+     "Channel",
+     "varchar"
+    ],
+    [
+     "MarketSegment",
+     "varchar"
+    ],
+    [
+     "TourOperator",
+     "varchar"
+    ],
+    [
+     "BoardType",
+     "varchar"
+    ],
+    [
+     "RateAmount",
+     "decimal"
+    ],
+    [
+     "RoomRevenue",
+     "decimal"
+    ],
+    [
+     "ExtrasRevenue",
+     "decimal"
+    ],
+    [
+     "Status",
+     "varchar"
+    ],
+    [
+     "CancelDate",
+     "date"
+    ],
+    [
+     "CreatedAt",
+     "datetime2"
+    ],
+    [
+     "ModifiedAt",
+     "datetime2"
+    ]
+   ]
+  },
+  "pms.RoomType": {
+   "rows": 117,
+   "columns": [
+    [
+     "RoomTypeId",
+     "int"
+    ],
+    [
+     "HotelId",
+     "int"
+    ],
+    [
+     "RoomTypeCode",
+     "varchar"
+    ],
+    [
+     "RoomTypeName",
+     "varchar"
+    ],
+    [
+     "RoomCount",
+     "int"
+    ],
+    [
+     "RateMultiplier",
+     "decimal"
+    ]
+   ]
+  }
+ },
+ "items": [
+  {
+   "type": "Report",
+   "name": "Kyanos Hotels - Commercial Performance",
+   "folder": "4 Power BI"
+  },
+  {
+   "type": "SemanticModel",
+   "name": "Kyanos Hotels Model",
+   "folder": "4 Power BI"
+  },
+  {
+   "type": "SQLEndpoint",
+   "name": "KyanosLakehouse",
+   "folder": "2 OneLake unified data"
+  },
+  {
+   "type": "SQLEndpoint",
+   "name": "KyanosPMS",
+   "folder": "1 Sources PMS on SQL"
+  },
+  {
+   "type": "SQLEndpoint",
+   "name": "KyanosHotelsOntology_lh_<id>",
+   "folder": "5 Agents and Fabric IQ"
+  },
+  {
+   "type": "Lakehouse",
+   "name": "KyanosLakehouse",
+   "folder": "2 OneLake unified data"
+  },
+  {
+   "type": "SQLDatabase",
+   "name": "KyanosPMS",
+   "folder": "1 Sources PMS on SQL"
+  },
+  {
+   "type": "Notebook",
+   "name": "01_Ingest_Salesforce_SAP_Airports",
+   "folder": "2 OneLake unified data"
+  },
+  {
+   "type": "Notebook",
+   "name": "02_Build_Gold_Model",
+   "folder": "2 OneLake unified data"
+  },
+  {
+   "type": "Notebook",
+   "name": "03_AI_Demand_Forecast_2027",
+   "folder": "3 AI forecasting"
+  },
+  {
+   "type": "MLExperiment",
+   "name": "kyanos-occupancy-forecast",
+   "folder": "3 AI forecasting"
+  },
+  {
+   "type": "MLModel",
+   "name": "kyanos-occupancy-forecast",
+   "folder": "3 AI forecasting"
+  },
+  {
+   "type": "DataAgent",
+   "name": "Kyanos Revenue & Guest Assistant",
+   "folder": "5 Agents and Fabric IQ"
+  },
+  {
+   "type": "Notebook",
+   "name": "04_Fabric_IQ_Ontology_Entities",
+   "folder": "5 Agents and Fabric IQ"
+  },
+  {
+   "type": "Ontology",
+   "name": "KyanosHotelsOntology",
+   "folder": "5 Agents and Fabric IQ"
+  },
+  {
+   "type": "Lakehouse",
+   "name": "KyanosHotelsOntology_lh_<id>",
+   "folder": "5 Agents and Fabric IQ"
+  },
+  {
+   "type": "GraphModel",
+   "name": "KyanosHotelsOntology_graph_<id>",
+   "folder": "5 Agents and Fabric IQ"
+  }
+ ]
+}
